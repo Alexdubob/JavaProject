@@ -12,10 +12,16 @@ public class GaudiMitArraysV2 {
 
                 abc[j] = abc[j-1];
             }
+
             abc[0] = last;
         }
 
         System.out.println(abc);
+
+
+
+
+
 
 
 
