@@ -8,8 +8,8 @@ public class KinoVerwaltungV1 {
         String [] movies = {"Batman, Matrix, Matrix2"};
         boolean seatsLeft = true;
 
-        char cancel = 'ä';
-        while(seatsLeft = true && cancel !=0 ) {
+        char cancel = '0';
+        while(seatsLeft && cancel !=0 ) {
             System.out.println("Welchen (nicht ausgebuchten) Film möchtest du sehen? (0 zum abbrechen)");
             cancel = sc.nextLine().charAt(0);
         }
