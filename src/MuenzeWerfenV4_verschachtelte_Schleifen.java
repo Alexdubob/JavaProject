@@ -8,8 +8,8 @@ public class MuenzeWerfenV4_verschachtelte_Schleifen {
 
         int x = 0;
         int y = 0;
-        int wieOft = 0;
-        boolean zufrieden;
+        int howOften = 0;
+        boolean happy;
 
 
 
@@ -17,12 +17,12 @@ public class MuenzeWerfenV4_verschachtelte_Schleifen {
 
                 do {
                     System.out.println("Wie oft soll die Münze geworfen werden (INSGESAMT ungerade neue Zahl 1-10)?");
-                    wieOft = sc.nextInt();
+                    howOften = sc.nextInt();
                 }
-                while (wieOft < 1 || wieOft > 10 || (wieOft + x +y) % 2 ==0);
+                while (howOften < 1 || howOften > 10 || (howOften + x +y) % 2 ==0);
 
 
-                for (int würfeln = 1; würfeln <= wieOft; würfeln++) {
+                for (int roll = 1; roll <= howOften; roll++) {
                     boolean head = r.nextBoolean();
                     if (head) {
                         System.out.println("Werfe Münze....Kopf");
@@ -42,8 +42,8 @@ public class MuenzeWerfenV4_verschachtelte_Schleifen {
                 }
 
                 System.out.println("Bist du mit dem Ergebnis zufriedn");
-                zufrieden = sc.nextBoolean();
-            } while (!zufrieden);
+                happy = sc.nextBoolean();
+            } while (!happy);
 
 
 

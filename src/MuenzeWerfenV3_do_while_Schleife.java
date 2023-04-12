@@ -8,15 +8,15 @@ public class MuenzeWerfenV3_do_while_Schleife {
 
         int x =0;
         int y=0;
-        int wieOft =0;
+        int howOften =0;
             do {
                 System.out.println("Wie oft soll die Münze geworfen werden (ungerade Zahl 1-10)?");
-                wieOft = sc.nextInt();
-            } while (wieOft < 1 || wieOft > 10 || wieOft % 2 == 0);
+                howOften = sc.nextInt();
+            } while (howOften < 1 || howOften > 10 || howOften % 2 == 0);
 
-        for (int würfeln = 1; würfeln <= wieOft; würfeln++) {
-            boolean Kopf = r.nextBoolean();
-            if (Kopf) {
+        for (int roll = 1; roll <= howOften; roll++) {
+            boolean head = r.nextBoolean();
+            if (head) {
                 System.out.println("Werfe Münze....Kopf");
                 x++;
             }

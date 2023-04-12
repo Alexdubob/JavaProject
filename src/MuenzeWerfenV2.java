@@ -8,14 +8,14 @@ public class MuenzeWerfenV2 {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Wie oft soll gewürfelt werden?");
-        int wieOft = sc.nextInt();
+        int howOften = sc.nextInt();
         int k = 0;
         int z = 0;
 
 
-        for (int würfeln = 1; würfeln <= wieOft; würfeln++) {
-            boolean Kopf = r.nextBoolean();
-            if (Kopf) {
+        for (int roll = 1; roll <= howOften; roll++) {
+            boolean head = r.nextBoolean();
+            if (head) {
                 System.out.println("Werfe Münze....Kopf");
                 k++;
             }

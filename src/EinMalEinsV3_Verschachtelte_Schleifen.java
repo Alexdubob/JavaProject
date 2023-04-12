@@ -6,7 +6,6 @@ public class EinMalEinsV3_Verschachtelte_Schleifen {
             for (int a = 1; a <= 10; a++) {
                 System.out.println(a + "x" + b + "=" + (a * b));
             }
-
        }
     }
 }
