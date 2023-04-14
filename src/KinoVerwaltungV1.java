@@ -22,16 +22,18 @@ public class KinoVerwaltungV1 {
                     status = "verfügbar";
                 System.out.println(movies[i][0] + " " + movies[i][1] + " " + status);
             }
-
-            System.out.println("Welchen (nicht ausgebuchten) Film möchtest du sehen (0 zum abbrechen)");
-            int wichMovie = sc.nextInt();
+            int wichMovie;
+            do {
+                System.out.println("Welchen (nicht ausgebuchten) Film möchtest du sehen (0 zum abbrechen)");
+                wichMovie = sc.nextInt();
+            }while (wichMovie < 0||wichMovie > movies.length);
             chosenMovies.add(wichMovie);
             System.out.println("Du hast bereits Film " + chosenMovies + " geschaut");
             if (wichMovie == 0) {
                 System.out.println("Tschüss");
                 System.exit(0);
-
             }
+
             System.out.println("Es sind noch " + movies[wichMovie][3] + " verfügbar. Wie viele möchtest du kaufen");
             int tickets = sc.nextInt();
             int seats = Integer.parseInt(movies[wichMovie][3]);

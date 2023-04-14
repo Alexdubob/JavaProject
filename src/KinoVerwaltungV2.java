@@ -5,14 +5,16 @@ public class KinoVerwaltungV2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Integer> chosenMovies = new ArrayList();
+        ArrayList<Integer> chosenSnacks = new ArrayList();
 
         String[][] movies = {{"leerer Film"}, {"Batman", "20:15", "1", "10"}, {"Matrix", "22:00", "2", "10"}, {"Matrix2", "17:00", "3", "10"}};
-
+        String[][] snacks ={{"leere snacks"}, {"Popcorn", "1.00","10"}, {"Chips", "2.00","10"}, {"Schokolade", "3.50","10"}};
 
         System.out.println("Wieviel Geld hast du mit? ");
         int howMuchMoney = sc.nextInt();
 
 
+        //movies
         do {
             for (int i = 1; i < movies.length; i++) {                   //Display panel
                 String status;
@@ -44,6 +46,31 @@ public class KinoVerwaltungV2 {
 
         } while (howMuchMoney > 15);
         System.out.println("Du hast zu wenig Geld.");
+
+
+        //Snacks
+        for (int j = 1; j < snacks.length; j++) {                   //Display panel
+            String statusSnacks;
+            if (snacks[j][2].equals("0")) {
+                statusSnacks = "ausverkauft";
+            } else
+                statusSnacks = "auf Lager";
+            System.out.println(snacks[j][0] + " " + snacks[j][1] + " " + statusSnacks);
+        }
+
+        System.out.println("Welchen (noch vorhandenen) Snack möchtest du kaufen? (0 zum abbrechen)");
+        int wichSnack = sc.nextInt();
+        chosenSnacks.add(wichSnack);
+        if (wichSnack == 0)
+            System.out.println("Tschüss");
+            System.exit(0);
+
+           /* System.out.println("Du kaufst " + snacks + " um " + (snacks * snacks[i][1]) + "€ und hast jetzt noch " + (howMuchMoney - (tickets * 15)) + "€");
+            howMuchMoney = (howMuchMoney - (tickets * 15));
+*/
+
+
+
 
 
     }
