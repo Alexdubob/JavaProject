@@ -27,7 +27,8 @@ public class MuenzeWerfenV4_verschachtelte_Schleifen {
                     if (head) {
                         System.out.println("Werfe Münze....Kopf");
                         x++;
-                    } else {
+                    }
+                    else {
                         System.out.println("Werfe Münze....Zahl");
                         y++;
                     }

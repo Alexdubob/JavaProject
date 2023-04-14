@@ -1,7 +1,7 @@
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class KinoVerwaltungV1 {
+public class KinoVerwaltungV2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Integer> chosenMovies = new ArrayList();
