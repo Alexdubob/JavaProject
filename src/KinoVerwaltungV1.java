@@ -22,13 +22,13 @@ public class KinoVerwaltungV1 {
                     status = "verfügbar";
                 System.out.println(movies[i][0] + " " + movies[i][1] + " " + status);
             }
+
             int wichMovie;
             do {
                 System.out.println("Welchen (nicht ausgebuchten) Film möchtest du sehen (0 zum abbrechen)");
                 wichMovie = sc.nextInt();
             }while (wichMovie < 0||wichMovie > movies.length);
-            chosenMovies.add(wichMovie);
-            System.out.println("Du hast bereits Film " + chosenMovies + " geschaut");
+
             if (wichMovie == 0) {
                 System.out.println("Tschüss");
                 System.exit(0);
@@ -39,6 +39,8 @@ public class KinoVerwaltungV1 {
             int seats = Integer.parseInt(movies[wichMovie][3]);
             seats = (seats - tickets);
             movies[wichMovie][3] = String.valueOf(seats);
+            if (movies[wichMovie][3] > tickets]{
+            }
 
 
             System.out.println("Du kaufst " + tickets + " um " + (tickets * 15) + "€ und hast jetzt noch " + (howMuchMoney - (tickets * 15)) + "€");
@@ -46,6 +48,9 @@ public class KinoVerwaltungV1 {
 
         } while (howMuchMoney > 15);
         System.out.println("Du hast zu wenig Geld.");
+
+         /* chosenMovies.add(wichMovie);
+            System.out.println("Du hast bereits Film " + chosenMovies + " geschaut");*/
 
 
     }
