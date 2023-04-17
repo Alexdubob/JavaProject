@@ -9,12 +9,17 @@ public class KinoVerwaltungV1 {
         String[][] movies = {{"leerer Film"}, {"Batman", "20:15", "1", "10"}, {"Matrix", "22:00", "2", "10"}, {"Matrix2", "17:00", "3", "10"}};
 
 
-        System.out.println("Wieviel Geld hast du mit? ");
-        int howMuchMoney = sc.nextInt();
+        double howMuchMoney = 1;
+        do {
 
+            System.out.println("Wieviel Geld hast du mit? ");
+            howMuchMoney = sc.nextDouble();
+            if (howMuchMoney < 15)
+                System.out.println("Du hast zu wenig Geld.");
+        } while (howMuchMoney < 15);
 
         do {
-            for (int i = 1; i < movies.length; i++) {                   //Display panel
+            for (int i = 1; i < movies.length; i++) {                                                                               //Display panel movies
                 String status;
                 if (movies[i][3].equals("0")) {
                     status = "ausgebucht";
@@ -23,35 +28,47 @@ public class KinoVerwaltungV1 {
                 System.out.println(movies[i][0] + " " + movies[i][1] + " " + status);
             }
 
-            int wichMovie;
+
+            int whichMovie = 10;
             do {
-                System.out.println("Welchen (nicht ausgebuchten) Film möchtest du sehen (0 zum abbrechen)");
-                wichMovie = sc.nextInt();
-            }while (wichMovie < 0||wichMovie > movies.length);
+                System.out.println("Welchen (nicht ausgebuchten) Film möchtest du sehen (0 zum abbrechen)");                        //choosing a movie
+                whichMovie = sc.nextInt();
+               /* if (whichMovie == 0) {
+                    System.out.println("Tschüss");
+                    System.exit(0);
+                }*/
+            } while (whichMovie < 0 || whichMovie >= movies.length || (movies[whichMovie][3].equals("0")));
 
-            if (wichMovie == 0) {
-                System.out.println("Tschüss");
-                System.exit(0);
-            }
 
-            System.out.println("Es sind noch " + movies[wichMovie][3] + " verfügbar. Wie viele möchtest du kaufen");
-            int tickets = sc.nextInt();
-            int seats = Integer.parseInt(movies[wichMovie][3]);
+            int movieSeats = Integer.parseInt(movies[whichMovie][3]);
+            int tickets = 0;
+            do {
+                System.out.println("Es sind noch " + movies[whichMovie][3] + " Tickets verfügbar. Wie viele möchtest du kaufen");     //tickets available
+                tickets = sc.nextInt();
+                if (howMuchMoney - (tickets * 15) < 0) {
+                    System.out.println("Du hast zu wenig Geld.");
+                    //System.exit(0);
+                } else if (tickets > movieSeats) {
+                    System.out.println("zu wenig Sitze");
+                }
+            } while (howMuchMoney - tickets * 15 < 0 || tickets > movieSeats);
+
+
+            int seats = Integer.parseInt(movies[whichMovie][3]);
             seats = (seats - tickets);
-            movies[wichMovie][3] = String.valueOf(seats);
-            if (movies[wichMovie][3] > tickets]{
-            }
-
-
+            movies[whichMovie][3] = String.valueOf(seats);
             System.out.println("Du kaufst " + tickets + " um " + (tickets * 15) + "€ und hast jetzt noch " + (howMuchMoney - (tickets * 15)) + "€");
             howMuchMoney = (howMuchMoney - (tickets * 15));
 
-        } while (howMuchMoney > 15);
-        System.out.println("Du hast zu wenig Geld.");
 
-         /* chosenMovies.add(wichMovie);
-            System.out.println("Du hast bereits Film " + chosenMovies + " geschaut");*/
+            for (int x = 0; x < tickets; x++) {
+                chosenMovies.add(whichMovie);
+            }
+            System.out.println("Du hast bereits diese Tickets " + chosenMovies);
+
+        } while (howMuchMoney > 15);
 
 
     }
 }
+
