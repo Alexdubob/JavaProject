@@ -36,52 +36,50 @@ public class KinoVerwaltungV2 {
 
 
             if (option == 1) {
-                    for (int i = 1; i < movies.length; i++) {                                                                               //Display panel movies
-                        String status;
-                        if (movies[i][3].equals("0")) {
-                            status = "ausgebucht";
-                        } else
-                            status = "verfügbar";
-                        System.out.println(movies[i][0] + " " + movies[i][1] + " " + status);
-                    }
-
-                    int whichMovie;
-                    do {
-                        System.out.println("Welchen (nicht ausgebuchten) Film möchtest du sehen (0 zum abbrechen)");                        //choosing a movie
-                        whichMovie = sc.nextInt();
-                    } while (whichMovie == 0 ||whichMovie < 0 || whichMovie >= movies.length || movies[whichMovie][3].equals("0") );
-
-
-                    int movieSeats = Integer.parseInt(movies[whichMovie][3]);
-                    int tickets = 0;
-                    do {
-                        System.out.println("Es sind noch " + movies[whichMovie][3] + " Tickets verfügbar. Wie viele möchtest du kaufen");     //tickets available
-                        tickets = sc.nextInt();
-                        if (howMuchMoney - (tickets * 15) < 0) {
-                            System.out.println("Du hast zu wenig Geld.");
-                            //System.exit(0);
-                        } else if (tickets > movieSeats) {
-                            System.out.println("zu wenig Sitze");
-                        }
-                    } while (howMuchMoney - (tickets * 15) < 0 || tickets > movieSeats);
-
-
-                    int seats = Integer.parseInt(movies[whichMovie][3]);
-                    seats = (seats - tickets);
-                    movies[whichMovie][3] = String.valueOf(seats);
-                    System.out.println("Du kaufst " + tickets + " um " + (tickets * 15) + "€ und hast jetzt noch " + (howMuchMoney - (tickets * 15)) + "€");
-                    howMuchMoney = (howMuchMoney - (tickets * 15));
-
-
-                    for (int x = 0; x < tickets; x++) {
-                        chosenMovies.add(whichMovie);
-                    }
-                    System.out.println("Du hast bereits diese Tickets " + chosenMovies);
+                for (int i = 1; i < movies.length; i++) {                                                                               //Display panel movies
+                    String status;
+                    if (movies[i][3].equals("0")) {
+                        status = "ausgebucht";
+                    } else
+                        status = "verfügbar";
+                    System.out.println(movies[i][0] + " " + movies[i][1] + " " + status);
                 }
 
+                int whichMovie;
+                do {
+                    System.out.println("Welchen (nicht ausgebuchten) Film möchtest du sehen (0 zum abbrechen)");                        //choosing a movie
+                    whichMovie = sc.nextInt();
+                } while (whichMovie != 0 || whichMovie < 0 || whichMovie >= movies.length || movies[whichMovie][3].equals("0"));
 
 
-                //Snacks
+                int movieSeats = Integer.parseInt(movies[whichMovie][3]);
+                int tickets = 0;
+                do {
+                    System.out.println("Es sind noch " + movies[whichMovie][3] + " Tickets verfügbar. Wie viele möchtest du kaufen");     //tickets available
+                    tickets = sc.nextInt();
+                    if (howMuchMoney - (tickets * 15) < 0) {
+                        System.out.println("Du hast zu wenig Geld.");
+                        //System.exit(0);
+                    } else if (tickets > movieSeats) {
+                        System.out.println("zu wenig Sitze");
+                    }
+                } while (howMuchMoney - (tickets * 15) < 0 || tickets > movieSeats);
+
+
+                int seats = Integer.parseInt(movies[whichMovie][3]);
+                seats = (seats - tickets);
+                movies[whichMovie][3] = String.valueOf(seats);
+                System.out.println("Du kaufst " + tickets + " um " + (tickets * 15) + "€ und hast jetzt noch " + (howMuchMoney - (tickets * 15)) + "€");
+                howMuchMoney = (howMuchMoney - (tickets * 15));
+
+
+                for (int x = 0; x < tickets; x++) {
+                    chosenMovies.add(whichMovie);
+                }
+                System.out.println("Du hast bereits diese Tickets " + chosenMovies);
+            }
+
+                                                                                                                                        //Snacks
             else if (option == 2) {
                 for (int j = 1; j < snacks.length; j++) {                                                                               //Display panel snacks
                     String statusSnacks;
@@ -97,7 +95,7 @@ public class KinoVerwaltungV2 {
                 do {
                     System.out.println("Welchen (noch vorhandenen) Snack möchtest du kaufen? (0 zum abbrechen)");                       //choosing a Snack
                     whichSnack = sc.nextInt();
-                } while (whichSnack == 0 || whichSnack >= snacks.length || snacks[whichSnack][2].equals("0") || whichSnack < 0);
+                } while (whichSnack != 0 || whichSnack >= snacks.length || snacks[whichSnack][2].equals("0") || whichSnack < 0);
 
                 int howMuchSnacks;
                 int snacksAvailable = Integer.parseInt(snacks[whichSnack][2]);
@@ -125,10 +123,9 @@ public class KinoVerwaltungV2 {
                     chosenSnacks.add(whichSnack);
                 }
                 System.out.println("Du hast bereits diese Snacks " + chosenSnacks);
-            }
 
 
-            else if (option == 3) {
+            } else if (option == 3) {
                 int pickedMovie;
                 do {
                     System.out.println("Welchen Film (für den du noch ein Ticket hast) möchtest du sehen? (0 für abbrechen)");                  //pick a movie
@@ -136,11 +133,10 @@ public class KinoVerwaltungV2 {
                         System.out.println(chosenMovies.get(y));
                     }
                     pickedMovie = sc.nextInt();
-                } while (pickedMovie == 0 || !chosenMovies.contains(pickedMovie));
+                } while (pickedMovie != 0 || !chosenMovies.contains(pickedMovie));
                 chosenMovies.remove(pickedMovie);
                 System.out.println("Du schaust dir den Film " + movies[pickedMovie][0] + " an.");
-            }
-            else if (option == 4) {
+            } else if (option == 4) {
                 int pickedSnack;
                 do {
                     System.out.println("Welchen deiner Snacks willst du essen? (0 für abbrechen)");                                             //pick a snack
@@ -148,13 +144,10 @@ public class KinoVerwaltungV2 {
                         System.out.println(chosenSnacks.get(y));
                     }
                     pickedSnack = sc.nextInt();
-                } while (pickedSnack == 0 || !chosenSnacks.contains(pickedSnack));
+                } while (pickedSnack != 0 || !chosenSnacks.contains(pickedSnack));
                 chosenSnacks.remove(pickedSnack);
                 System.out.println("Du verspeist 1" + snacks[pickedSnack][0] + " . Mjam!");
-            }
-
-
-            else if(option == 5) {
+            } else if (option == 5) {
                 int a = 1;
                 int b = 1;
                 int c = a + b;
@@ -173,18 +166,15 @@ public class KinoVerwaltungV2 {
                     }
                 }
                 if (checkRandom || randomNumber % 10 == 0) {
-                    howMuchMoney= howMuchMoney + 20;
+                    howMuchMoney = howMuchMoney + 20;
                     System.out.println(randomNumber + " ist eine Fibonacci-Nummer! Du gewinnst 20€");
                 } else {
                     howMuchMoney = howMuchMoney - 5;
                     System.out.println(randomNumber + " ist KEINE Fibonacci-Nummer! Leider nicht gewonnen.");
                 }
-            }
-            else if (option == 6){
+            } else if (option == 6) {
                 System.out.println("Du verlässt das Kino. Auf wiedersehen!");
             }
-
-
 
 
         }
