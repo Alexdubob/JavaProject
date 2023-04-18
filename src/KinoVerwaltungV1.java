@@ -6,7 +6,7 @@ public class KinoVerwaltungV1 {
         Scanner sc = new Scanner(System.in);
         ArrayList<Integer> chosenMovies = new ArrayList();
 
-        String[][] movies = {{"leerer Film"}, {"Batman", "20:15", "1", "10"}, {"Matrix", "22:00", "2", "10"}, {"Matrix2", "17:00", "3", "10"}};
+        String[][] movies = {{"leerer Film"}, {"Batman", "20:15", "1", "0"}, {"Matrix", "22:00", "2", "10"}, {"Matrix2", "17:00", "3", "10"}};
 
 
         double howMuchMoney = 1;

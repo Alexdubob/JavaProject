@@ -49,7 +49,7 @@ public class KinoVerwaltungV2 {
                 do {
                     System.out.println("Welchen (nicht ausgebuchten) Film möchtest du sehen (0 zum abbrechen)");                        //choosing a movie
                     whichMovie = sc.nextInt();
-                } while (whichMovie != 0 || whichMovie < 0 || whichMovie >= movies.length || movies[whichMovie][3].equals("0"));
+                } while ( whichMovie !=0 && whichMovie >= movies.length || movies[whichMovie][3].equals("0"));
 
 
                 int movieSeats = Integer.parseInt(movies[whichMovie][3]);
