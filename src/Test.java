@@ -2,7 +2,7 @@ public class Test {
     public static void main(String[] args) {
 
 
-        char[] abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        /*char[] abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
         int howMuch = 3;
         int size = abc.length;
 
@@ -15,18 +15,8 @@ public class Test {
             }
             abc[0] = last;
         }
-
         System.out.println(abc);
-
-
-
-
-
-
-
-
-
-
+        */
 
        /* for (int i = 0; i < howMuch; i++) {
             int last = abc[0], j;
@@ -40,5 +30,10 @@ public class Test {
         for (int i = 0; i = abc.length; i++) {
             System.out.println(abc[i] + " ");
         }*/
+
+
+
+
+
     }
 }
