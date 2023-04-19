@@ -107,33 +107,34 @@ public class ZahlenRatenV1 {
                         guesses.add(guessHuman);
                         humanTurn = false;
 
-                    } else if (!humanTurn && guessHuman < randomNumber) {
+                    }
+                    else if (!humanTurn) {
                         guessComputer = max / 2;
                         System.out.println("Der Computer wählt " + guessComputer);
                         guesses.add(guessComputer);
                         humanTurn = true;
                     }
-                    else if (guessHuman == randomNumber) {
+                    if (guessHuman == randomNumber) {
                         System.out.println("Du hast richtig geraten die Zahl war: " + randomNumber + " Willst du noch einmal spielen (1 = ja/2 = nein) ?");
                         answer = scanner.nextInt();
 
                     }
                     else if (guessHuman < randomNumber || guessComputer < randomNumber) {
                         trys--;
-                        System.out.println("Größer! Es sind noch " + trys + " übrig.");
+                        System.out.println("Größer! Es sind noch " + trys + " versuche übrig.");
                         System.out.println("");
                         min = guessHuman;
                     }
                     else if (guessHuman > randomNumber || guessComputer > randomNumber) {
                         trys--;
-                        System.out.println("Kleiner! Es sind noch " + trys + " übrig. ");
+                        System.out.println("Kleiner! Es sind noch " + trys + " versuche übrig. ");
                         System.out.println("");
                         max = guessHuman;
                     }
                     else if (trys == 0 || guessComputer == randomNumber) {
                         System.out.println("Du hast verloren! der Computer hat richtig geraten. ");
                     }
-                }while (trys != 0 && guessComputer != randomNumber);
+                } while (trys != 0 && guessComputer != randomNumber);
             }
 
 
