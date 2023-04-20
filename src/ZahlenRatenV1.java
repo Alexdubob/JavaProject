@@ -29,16 +29,14 @@ public class ZahlenRatenV1 {
                     System.out.println("Bitte geben Sie einen Tipp ab:");
                     guess = scanner.nextInt();
                     guesses.add(guess);
-
+                    trys--;
                     if (guess == randomNumber) {
                         trys = 9;
                         System.out.println("Du hast richtig geraten die Zahl war: " + randomNumber + " Willst du noch einmal spielen (1 = ja/2 = nein) ?");
                         answer = scanner.nextInt();
                     } else if (guess < randomNumber) {
-                        trys--;
                         System.out.println("Größer! Du hast noch " + trys + " übrig.");
                     } else if (guess > randomNumber) {
-                        trys--;
                         System.out.println("Kleiner! Du hast noch " + trys + "übrig. ");
                     }
                     if (trys == 0) {
@@ -55,10 +53,12 @@ public class ZahlenRatenV1 {
                 int answer = 1;
 
                 do {
+                    System.out.println("Du hast " + trys + " versuche übrig.");
                     System.out.println("Deine bisherigen Tipps " + guesses);
                     System.out.println("Bitte geben Sie einen Tipp ab:");
                     int guess = scanner.nextInt();
                     guesses.add(guess);
+                    trys--;
                     int diff = Math.abs(guess - randomNumber);
 
 
@@ -80,15 +80,14 @@ public class ZahlenRatenV1 {
                         System.out.println(trys + " Versuche, Du hast verloren! ");
                         guesses.clear();
                     }
-                    trys--;
-                } while (trys != 0 || answer != 2);
+
+                } while (trys != 0 && answer != 2);
             }
             if (level == 3) {
                 guesses.clear();
                 System.out.println("Level 3 - Zufallszahl zwischen 0 und 100 gegen Computer.");
                 int randomNumber = random.nextInt(101);
-                int guessHuman = 50;
-                int guessComputer = 50;
+                int guess = 50;
                 int answer = 1;
                 int trys = 18;
                 boolean humanTurn;
@@ -103,38 +102,47 @@ public class ZahlenRatenV1 {
 
                     if (humanTurn) {
                         System.out.println("Bitte geben Sie einen Tipp ab:");
-                        guessHuman = scanner.nextInt();
-                        guesses.add(guessHuman);
+                        guess = scanner.nextInt();
+                        guesses.add(guess);
                         humanTurn = false;
-
-                    }
-                    else if (!humanTurn) {
-                        guessComputer = max / 2;
-                        System.out.println("Der Computer wählt " + guessComputer);
-                        guesses.add(guessComputer);
-                        humanTurn = true;
-                    }
-                    if (guessHuman == randomNumber) {
-                        System.out.println("Du hast richtig geraten die Zahl war: " + randomNumber + " Willst du noch einmal spielen (1 = ja/2 = nein) ?");
-                        answer = scanner.nextInt();
-
-                    }
-                    else if (guessHuman < randomNumber || guessComputer < randomNumber) {
                         trys--;
+
+                    } else if (!humanTurn) {
+                        guess = (min + max) / 2;
+                        System.out.println("Der Computer wählt " + guess);
+                        guesses.add(guess);
+                        humanTurn = true;
+                        trys--;
+                    }
+                    if (!humanTurn){
+                        if (guess == randomNumber) {
+                            System.out.println("Du hast richtig geraten die Zahl war: " + randomNumber + " Willst du noch einmal spielen (1 = ja/2 = nein) ?");
+                            answer = scanner.nextInt();
+                        }
+                    }
+                    if (humanTurn){
+                        if (guess == randomNumber){
+                            System.out.println("Du hast verloren, der Computer hat die Zufallszahl " + randomNumber + " erraten. ");
+                        }
+                    }
+                    if (guess < randomNumber ) {
                         System.out.println("Größer! Es sind noch " + trys + " versuche übrig.");
                         System.out.println("");
-                        min = guessHuman;
+                        if (guess > min) {
+                            min = guess + 1;
+                        }
                     }
-                    else if (guessHuman > randomNumber || guessComputer > randomNumber) {
-                        trys--;
+                    else if (guess > randomNumber) {
                         System.out.println("Kleiner! Es sind noch " + trys + " versuche übrig. ");
                         System.out.println("");
-                        max = guessHuman;
+                        if (guess < max) {
+                            max = guess - 1;
+                        }
                     }
-                    else if (trys == 0 || guessComputer == randomNumber) {
-                        System.out.println("Du hast verloren! der Computer hat richtig geraten. ");
+                    if (trys == 0) {
+                        System.out.println("Du hast verloren! Du hat keine versuche mehr. ");
                     }
-                } while (trys != 0 && guessComputer != randomNumber);
+                } while (answer != 2 && trys != 0 && guess != randomNumber);
             }
 
 
