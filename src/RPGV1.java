@@ -25,36 +25,41 @@ public class RPGV1 {
         System.out.println("------------------------------");
 
 
-        for (int i = 0; i < choices.length; i++) {
-            if (choices[i][0].equals(Integer.toString(currentChoice))) {
-                System.out.println(choices[i][1] + ".) " + choices[i][2]);
-                //viableChoices.add(Integer.parseInt(currentChoice[1]));
-            }
-        }
 
         do {
+
+            viableChoices.clear();                                                                                          // leert die Liste für jeden Schleifendurchlauf
+            for (int i = 0; i < choices.length; i++) {
+                if (choices[i][0].equals(Integer.toString(currentChoice))) {
+                    System.out.println(choices[i][1] + ".) " + choices[i][2]);
+                    viableChoices.add(Integer.parseInt(choices[i][1]));
+                }
+            }
             System.out.println("------------------------------");
             System.out.println("Was willst du als nächstes tun?");
             currentChoice = scanner.nextInt();
             System.out.println(choices[currentChoice][3]);
             System.out.println("");
 
+
             for (int i = 0; i < choices.length; i++) {
                 if (choices[i][0].equals(Integer.toString(currentChoice))) {
                     System.out.println(choices[i][1] + ".) " + choices[i][2]);
+                    viableChoices.add(Integer.parseInt(choices[i][1]));
                 }
             }
-        } while (!viableChoices.contains(currentChoice));
+            System.out.println("------------------------------");
+            System.out.println("Was willst du als nächstes tun?");
+
+
+        } while (true);
+
+
+    //if (choices.length != 5){
 
 
     }
 }
-
-
-
-
-
-
 
 
 

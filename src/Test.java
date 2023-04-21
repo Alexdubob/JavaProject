@@ -1,35 +1,58 @@
+import java.util.Random;
+import java.util.Scanner;
+import java.util.ArrayList;
 public class Test {
     public static void main(String[] args) {
 
 
-        /*char[] abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-        int howMuch = 3;
-        int size = abc.length;
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> viableChoices = new ArrayList<>();
+        String[][] choices = {
+                // {parentID, ID, choiceTxt, resultTxt, moveToID }
+                {"-1", "0", "", "Du stehst in einer Bar."},
+
+                {"0", "1", "Geh in die Wildnis", "Du bist in der Wildnis angekommen."},
+                {"0", "2", "Trink ein Getränk", "Du lässt dir ein Getränk schmecken", "0"},
+
+                {"1", "3", "Kämpf gegen das Monster", "Das Monster ist ein harter Gegner, aber du besiegst es.", "1"},
+                {"1", "4", "Lauf vor dem Monster davon", "Du läufst wie ein Feigling zurück zur Bar.", "0"},
+        };
+
+        int currentChoice = 0;
+
+        System.out.println(choices[currentChoice][3]);
+        System.out.println("------------------------------");
 
 
-        for(int i=1;i<=howMuch;i++){
-            char last = abc[size-1];
-            for (int j=size-1;j>0;j--){
+        do {
 
-                abc[j] = abc[j-1];
+            viableChoices.clear();                                                                                          // leert die Liste für jeden Schleifendurchlauf
+            for (int i = 0; i < choices.length; i++) {
+                if (choices[i][0].equals(Integer.toString(currentChoice))) {
+                    System.out.println(choices[i][1] + ".) " + choices[i][2]);
+                    viableChoices.add(Integer.parseInt(choices[i][1]));
+                }
             }
-            abc[0] = last;
-        }
-        System.out.println(abc);
-        */
+            System.out.println("------------------------------");
+            System.out.println("Was willst du als nächstes tun?");
+            currentChoice = scanner.nextInt();
+            System.out.println(choices[currentChoice][3]);
+            System.out.println("");
 
-       /* for (int i = 0; i < howMuch; i++) {
-            int last = abc[0], j;
 
-            for (j = 0; j < abc.length - 1; j++) {
-                abc[j] = abc[j + 1];
+            for (int i = 0; i < choices.length; i++) {
+                if (choices[i][0].equals(Integer.toString(currentChoice))) {
+                    System.out.println(choices[i][1] + ".) " + choices[i][2]);
+                    viableChoices.add(Integer.parseInt(choices[i][1]));
+                }
             }
-            abc[j] = last;
-        }
+            System.out.println("------------------------------");
+            System.out.println("Was willst du als nächstes tun?");
+            currentChoice = scanner.nextInt();
+            System.out.println(choices[currentChoice][3]);
+            System.out.println("");
 
-        for (int i = 0; i = abc.length; i++) {
-            System.out.println(abc[i] + " ");
-        }*/
+        } while (true);
 
 
 
