@@ -81,6 +81,7 @@ public class MineSweeperV2 {
                 exploredFields++;
             }
 
+
             // Prints the map
             System.out.println("  A  B  C  D  E  F  G  H  I  J");
             for (int i = 0; i < 10; i++) {
@@ -89,34 +90,35 @@ public class MineSweeperV2 {
 
                     if (map[i][j] == 1) {
                         System.out.print("[-]");
+                        exploredFields++;
                     }
-
                     //checks the direct neighbors
                     else if (map[i][j] == 2) {
-                        for (int a = x - 1; a <= x + 1; a++){
-                            for (int b = y - 1; b <= y + 1; b++) {
+                        for (int k = x - 1; k <= x + 1; k++){
+                            for (int l = y - 1; l <= y + 1; l++) {
                                 //System.out.print("[-]");
-                                if (map[i][j] == 0) {
-                                    mineCount++;
-                                    System.out.print("[*]");
+                                if (map[k][l] == 0) {
+                                    mineCount--;
+                                    (map[k][l]) = 0;
+                                    //System.out.print("[*]");
                                 } else {
                                     exploredFields++;
-                                    System.out.print("[-]");
+                                    map[k][l] = 1;
                                 }
                             }
                         }
                     }
                     //checks the next 2 neighbors
                     else if (map[i][j]==3){
-                        for (int a = x - 2; a <= x + 2; a++){
-                            for (int b = y - 2; b <= y + 2; b++) {
+                        for (int k = x - 2; k <= x + 2; k++){
+                            for (int l = y - 2; l <= y + 2; l++) {
                                 //System.out.print("[-]");
-                                if (map[i][j] == 0) {
-                                    mineCount++;
-                                    System.out.print("[*]");
+                                if (map[k][l] == 0) {
+                                    mineCount--;
+                                    map[k][l] = 0;
                                 } else {
                                     exploredFields++;
-                                    System.out.print("[-]");
+                                    map[k][l] = 3;
                                 }
                             }
                         }
