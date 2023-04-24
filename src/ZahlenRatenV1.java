@@ -140,7 +140,7 @@ public class ZahlenRatenV1 {
                         }
                     }
                     if (trys == 0) {
-                        System.out.println("Du hast verloren! Du hat keine versuche mehr. ");
+                        System.out.println("Du hast verloren! Du hast keine versuche mehr. ");
                     }
                 } while (answer != 2 && trys != 0 && guess != randomNumber);
             }

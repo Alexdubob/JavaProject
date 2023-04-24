@@ -1,8 +1,8 @@
-import java.util.Scanner;
-import java.util.Random;
 import java.text.DecimalFormat;
+import java.util.Random;
+import java.util.Scanner;
 
-public class MineSweeperV1 {
+public class MineSweeperV2 {
     public static void main(String[] args) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
@@ -16,7 +16,7 @@ public class MineSweeperV1 {
         // fill map with random numbers from 0 to -3 and count the number of zeros
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                map[i][j] = random.nextInt(-3,1);
+                map[i][j] = random.nextInt(-3, 1);
                 if (map[i][j] == 0) {
                     mineCount++;
                 }
@@ -46,7 +46,7 @@ public class MineSweeperV1 {
             double percentage = ((double) amountFields) / 100 * exploredFields;
 
             // Prints the status of the game
-            System.out.println("Du hast " + exploredFields +  "/" + (amountFields) +
+            System.out.println("Du hast " + exploredFields + "/" + (amountFields) +
                     " (" + df.format(percentage) + "%) " + " des nicht verminten Gebiets auf Minen gecheckt");
             System.out.println("Es sind noch " + mineCount + " Minen versteckt");
             System.out.print("Wo willst du nach Minen suchen?\n");
@@ -65,10 +65,19 @@ public class MineSweeperV1 {
             // Evaluates the user input
             if (map[y][x] == 0) {
                 System.out.println("Das war leider eine Mine. Du hast verloren.");
-                map[y][x] = 2;
+                map[y][x] = 0;
                 gameEnd = true;
-            } else {
+            }
+            else if (map[y][x] == -1) {
                 map[y][x] = 1;
+                exploredFields++;
+            }
+            else if (map[y][x] == -2){
+                map[y][x] = 2;
+                exploredFields++;
+            }
+            else if (map[y][x] == -3){
+                map[y][x] = 3;
                 exploredFields++;
             }
 
@@ -81,10 +90,39 @@ public class MineSweeperV1 {
                     if (map[i][j] == 1) {
                         System.out.print("[-]");
                     }
+
+                    //checks the direct neighbors
                     else if (map[i][j] == 2) {
-                        System.out.print("[*]");
+                        for (int a = x - 1; a <= x + 1; a++){
+                            for (int b = y - 1; b <= y + 1; b++) {
+                                //System.out.print("[-]");
+                                if (map[i][j] == 0) {
+                                    mineCount++;
+                                    System.out.print("[*]");
+                                } else {
+                                    exploredFields++;
+                                    System.out.print("[-]");
+                                }
+                            }
+                        }
                     }
-                    else {
+                    //checks the next 2 neighbors
+                    else if (map[i][j]==3){
+                        for (int a = x - 2; a <= x + 2; a++){
+                            for (int b = y - 2; b <= y + 2; b++) {
+                                //System.out.print("[-]");
+                                if (map[i][j] == 0) {
+                                    mineCount++;
+                                    System.out.print("[*]");
+                                } else {
+                                    exploredFields++;
+                                    System.out.print("[-]");
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
                         System.out.print("[ ]");
                     }
                 }
