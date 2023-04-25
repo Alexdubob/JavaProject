@@ -1,15 +1,14 @@
 import java.util.Arrays;
 import java.util.Random;
-import java.util.ArrayList;
 
 public class GaudiMitStatistikV3 {
     public static void main(String[] args) {
         Random r = new Random();
 
         //unsorted urlist
-        int[] urlist = new int[10];
+        int[] urlist = new int[6];
         for (int x = 0; x < urlist.length; x++) {
-            urlist[x] = r.nextInt(100);
+            urlist[x] = r.nextInt(10);
         }
         System.out.println("Unsorted urlist ");
         System.out.println(Arrays.toString(urlist));
@@ -28,19 +27,26 @@ public class GaudiMitStatistikV3 {
         System.out.println(Arrays.toString(urlist));
 
         //arithmetic average
-        int sum = 0;
+        double average = 0;
         for (int i = 0; i < urlist.length; i++) {
-            sum = sum + urlist[i];
+            average = average + urlist[i];
         }
-        System.out.println("Artithmetic average: " + sum / 2);
+        System.out.println("Artithmetic average: " + average / urlist.length);
 
         //span
         int min = urlist[0];
-        int max = urlist[9];
+        int max = urlist[urlist.length - 1];
         System.out.println("Span: " + (max - min));
 
         //median
-        System.out.println("Median: " + (urlist[4] + urlist[5]) / 2);
+        double median = 0;
+        if (urlist.length % 2 == 0) {
+            median = (((double) urlist[urlist.length / 2] + (double) urlist[urlist.length/2 - 1]) / 2);
+        }
+        else{
+            median = ((double) urlist[urlist.length / 2]);
+        }
+        System.out.println("Median: "  + median );
 
         //modal value
         int maxValue = 0;
@@ -60,8 +66,14 @@ public class GaudiMitStatistikV3 {
                 maxValue = urlist[i];
             }
         }
-
         System.out.println("Modal value " + maxValue + " with " + maxCount);
+
+        //average absolute deviation
+        double absSum = 0;
+        for (int i = 0;i < urlist.length; i++){
+            absSum = (Math.abs(urlist[i] - average));
+        }
+        System.out.println("Average absolute deviation " + absSum / urlist.length);
 
 
 
