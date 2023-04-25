@@ -65,22 +65,61 @@ public class MineSweeperV2 {
             // Evaluates the user input
             if (map[y][x] == 0) {
                 System.out.println("Das war leider eine Mine. Du hast verloren.");
-                map[y][x] = 0;
+                map[y][x] = 5;
                 gameEnd = true;
+
+                //checks the direct neighbors
+            } else if (map[y][x] == -2) {
+                int k = x - 1;
+                if (k < 0)
+                    k = 0;
+                for (; k <= x + 1 && k < map.length; k++) {
+                    int l = y - 1;
+                    if (l < 0)
+                        l = 0;
+                    for (; l <= y + 1 && l < map[k].length; l++) {
+                        if (map[l][k] == 0) {
+                            map[l][k] = 5;
+                            mineCount--;
+                            exploredFields++;
+                        }
+                        else {
+                            map[l][k] = 1;
+                            exploredFields++;
+                        }
+
+                    }
+                }
             }
-            else if (map[y][x] == -1) {
+            //checks the next 2 neighbors
+
+            else if (map[y][x] == -3) {
+                int k = x - 2;
+                if (k < 0)
+                    k = 0;
+                for (; k <= x + 2 && k < map.length; k++) {
+                    int l = y - 2;
+                    if (l < 0)
+                        l = 0;
+                    for (; l <= y + 2 && l < map.length; l++) {
+
+                        if (map[l][k] == 0){
+                            map[l][k] = 5;
+                            mineCount--;
+                            exploredFields++;
+                            }
+                        else {
+                            map[l][k] = 1;
+                            exploredFields++;
+                        }
+                    }
+                }
+            }
+
+            else {
                 map[y][x] = 1;
                 exploredFields++;
             }
-            else if (map[y][x] == -2){
-                map[y][x] = 2;
-                exploredFields++;
-            }
-            else if (map[y][x] == -3){
-                map[y][x] = 3;
-                exploredFields++;
-            }
-
 
             // Prints the map
             System.out.println("  A  B  C  D  E  F  G  H  I  J");
@@ -90,41 +129,9 @@ public class MineSweeperV2 {
 
                     if (map[i][j] == 1) {
                         System.out.print("[-]");
-                        exploredFields++;
-                    }
-                    //checks the direct neighbors
-                    else if (map[i][j] == 2) {
-                        for (int k = x - 1; k <= x + 1; k++){
-                            for (int l = y - 1; l <= y + 1; l++) {
-                                //System.out.print("[-]");
-                                if (map[k][l] == 0) {
-                                    mineCount--;
-                                    (map[k][l]) = 0;
-                                    //System.out.print("[*]");
-                                } else {
-                                    exploredFields++;
-                                    map[k][l] = 1;
-                                }
-                            }
-                        }
-                    }
-                    //checks the next 2 neighbors
-                    else if (map[i][j]==3){
-                        for (int k = x - 2; k <= x + 2; k++){
-                            for (int l = y - 2; l <= y + 2; l++) {
-                                //System.out.print("[-]");
-                                if (map[k][l] == 0) {
-                                    mineCount--;
-                                    map[k][l] = 0;
-                                } else {
-                                    exploredFields++;
-                                    map[k][l] = 3;
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
+                    } else if (map[i][j] == 5) {
+                        System.out.print("[*]");
+                    } else {
                         System.out.print("[ ]");
                     }
                 }

@@ -10,7 +10,10 @@ public class Test {
        /* for (int a = x - 2; a <= x + 2; a++){
         for (int b = y - 2; b <= y + 2; b++) {
         }
-    }*/
+
+        if (y - 1 + k >= 0 && x - 1 + l>=0 && y-1 + k < map.length && x-1 + l < map.length){
+
+    */
 
 
 
