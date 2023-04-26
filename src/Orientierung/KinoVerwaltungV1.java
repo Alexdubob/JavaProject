@@ -35,10 +35,7 @@ public class KinoVerwaltungV1 {
             do {
                 System.out.println("Welchen (nicht ausgebuchten) Film möchtest du sehen (0 zum abbrechen)");                        //choosing a movie
                 whichMovie = sc.nextInt();
-               /* if (whichMovie == 0) {
-                    System.out.println("Tschüss");
-                    System.exit(0);
-                }*/
+
             } while (whichMovie < 0 || whichMovie >= movies.length || (movies[whichMovie][3].equals("0")));
 
 
@@ -49,7 +46,7 @@ public class KinoVerwaltungV1 {
                 tickets = sc.nextInt();
                 if (howMuchMoney - (tickets * 15) < 0) {
                     System.out.println("Du hast zu wenig Geld.");
-                    //System.exit(0);
+
                 } else if (tickets > movieSeats) {
                     System.out.println("zu wenig Sitze");
                 }
