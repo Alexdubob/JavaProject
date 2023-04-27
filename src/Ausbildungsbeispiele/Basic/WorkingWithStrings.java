@@ -1,4 +1,4 @@
-package Ausbildungsbeispiele;
+package Ausbildungsbeispiele.Basic;
 
 public class WorkingWithStrings {
     public static void main(String[] args) {

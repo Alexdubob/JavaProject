@@ -1,7 +1,6 @@
-package Ausbildungsbeispiele;
+package Ausbildungsbeispiele.Basic;
 import java.util.Scanner;
 import java.time.LocalTime;
-import java.time.*;
 
 
 public class FreeTimeOrWorkTime {

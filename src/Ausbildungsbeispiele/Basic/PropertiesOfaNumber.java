@@ -1,4 +1,4 @@
-package Ausbildungsbeispiele;
+package Ausbildungsbeispiele.Basic;
 
 import java.util.Random;
 import java.util.Scanner;
