@@ -5,10 +5,9 @@ public class CaesarChiffre {
 
 
         String plainText = "Ein Charakter namens Caesar!";
-        int key = 6;
         char plaintextChar;
         String encryptedText = "";
-
+        int key = 26;
 
         for (int i = 0; i <= plainText.length()-1; i++) {
             plaintextChar = plainText.charAt(i);
