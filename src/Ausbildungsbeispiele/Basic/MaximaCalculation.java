@@ -18,7 +18,7 @@ public class MaximaCalculation {
            temp = input;
        }
 
-       }while (sc.hasNextInt());
+       }while (!sc.hasNext("q"));
 
         System.out.println("The highest number is: " + temp);
 

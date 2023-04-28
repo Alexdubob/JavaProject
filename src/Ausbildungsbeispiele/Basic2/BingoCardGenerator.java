@@ -11,38 +11,19 @@ public class BingoCardGenerator {
         int[][] map = new int[5][5];
         ArrayList<Integer> randomNumbers = new ArrayList();
 
-        for (int i = 1; i < 76; i++) {
-            randomNumbers.add(i);
-        }
-
-        System.out.println(randomNumbers);
-
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
 
 
-            }
+        //roll again when the randomNumbers.contain random
+        while(randomNumbers.contains(random)) {
+            randomNumbers.add(random.nextInt(1, 15));
+
+            System.out.println(randomNumbers);
         }
 
 
-
-
-
-        /*for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                map[i][j] = random.nextInt(1, 15);
-            }
         }
-
-        System.out.println("  B  I  N  G  O");
-        for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map.length; j++) {
-                System.out.print(map[i][j]);
-            }
-            System.out.println();
-        }*/
     }
-}
+
 
 
 
