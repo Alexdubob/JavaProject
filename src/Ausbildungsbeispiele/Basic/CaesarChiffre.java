@@ -5,28 +5,28 @@ public class CaesarChiffre {
 
 
         String plainText = "Ein Charakter namens Caesar!";
-        char plaintextChar;
+        char plainTextChar;
         String encryptedText = "";
         int key = 26;
 
         for (int i = 0; i <= plainText.length()-1; i++) {
-            plaintextChar = plainText.charAt(i);
-            if (plaintextChar >= 'a' && plaintextChar <= 'z') {
-                plaintextChar = (char) (plaintextChar + key);
+            plainTextChar = plainText.charAt(i);
+            if (plainTextChar >= 'a' && plainTextChar <= 'z') {
+                plainTextChar = (char) (plainTextChar + key);
 
-                if (plaintextChar > 'z') {
-                    plaintextChar = (char) (plaintextChar - 'z' + 'a' - 1);
+                if (plainTextChar > 'z') {
+                    plainTextChar = (char) (plainTextChar - 'z' + 'a' - 1);
                 }
-                encryptedText += plaintextChar;
-            } else if (plaintextChar >= 'A' && plaintextChar <= 'Z') {
-                plaintextChar = (char) (plaintextChar + key);
+                encryptedText += plainTextChar;
+            } else if (plainTextChar >= 'A' && plainTextChar <= 'Z') {
+                plainTextChar = (char) (plainTextChar + key);
 
-                if (plaintextChar > 'Z') {
-                    plaintextChar = (char) (plaintextChar - 'Z' + 'A' - 1);
+                if (plainTextChar > 'Z') {
+                    plainTextChar = (char) (plainTextChar - 'Z' + 'A' - 1);
                 }
-                encryptedText += plaintextChar;
+                encryptedText += plainTextChar;
             } else {
-                encryptedText += plaintextChar;
+                encryptedText += plainTextChar;
             }
 
         }
