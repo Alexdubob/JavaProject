@@ -1,4 +1,4 @@
-package Ausbildungsbeispiele.Basic2;
+package Ausbildungsbeispiele.Basic;
 import java.util.Scanner;
 
 public class Leetspeak {
