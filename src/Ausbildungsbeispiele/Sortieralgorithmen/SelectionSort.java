@@ -16,16 +16,15 @@ public class SelectionSort {
         System.out.println("unsorted Array: " + Arrays.toString(numbers));
 
 
-        for (int i = 0; i < numbers.length; i++)
-        {
-            // Find the minimum element
-            int min_idx = i;
+        // Find the minimum element
+        for (int i = 0; i < numbers.length; i++) {
+            int min = i;
             for (int j = i+1; j < numbers.length; j++)
-                if (numbers[j] < numbers[min_idx])
-                    min_idx = j;
+                if (numbers[j] < numbers[min])
+                    min = j;
             // Swap the found minimum element with the first element
-            int temp = numbers[min_idx];
-            numbers[min_idx] = numbers[i];
+            int temp = numbers[min];
+            numbers[min] = numbers[i];
             numbers[i] = temp;
 
             System.out.println("sorted Array: " + Arrays.toString(numbers));
