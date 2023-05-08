@@ -1,4 +1,4 @@
-package Ausbildungsbeispiele.Basic2;
+package Ausbildungsbeispiele.Sortieralgorithmen;
 
 import java.util.ArrayList;
 import java.util.Random;

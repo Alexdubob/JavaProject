@@ -1,4 +1,5 @@
 package Ausbildungsbeispiele.Basic;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.HashMap;
 
@@ -6,6 +7,43 @@ public class Leetspeak {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        System.out.print("Enter a string to translate to Leetspeak: ");
+        String input = sc.nextLine().toUpperCase();
+
+        Map<Character, Character> leetMap = new HashMap<>();
+        leetMap.put('A', '@');
+        leetMap.put('B', '8');
+        leetMap.put('C', '(');
+        leetMap.put('D', 'D');
+        leetMap.put('E', '3');
+        leetMap.put('F', 'F');
+        leetMap.put('G', '6');
+        leetMap.put('H', '#');
+        leetMap.put('I', '!');
+        leetMap.put('J', 'J');
+        leetMap.put('K', 'K');
+        leetMap.put('L', '1');
+        leetMap.put('M', 'M');
+        leetMap.put('N', 'N');
+        leetMap.put('O', '0');
+        leetMap.put('P', 'P');
+        leetMap.put('Q', 'Q');
+        leetMap.put('R', 'R');
+        leetMap.put('S', '$');
+        leetMap.put('T', '7');
+        leetMap.put('U', 'U');
+        leetMap.put('V', 'V');
+        leetMap.put('W', 'W');
+        leetMap.put('X', 'X');
+        leetMap.put('Y', 'Y');
+        leetMap.put('Z', '2');
+
+        StringBuilder output = new StringBuilder();
+        for (char c : input.toCharArray()) {
+            output.append(leetMap.getOrDefault(c, c));
+        }
+
+        System.out.println("Leetspeak translation: " + output);
 
 
 
@@ -15,31 +53,6 @@ public class Leetspeak {
 
 
 
-
-
-
-
-
-
-
-
-        /*char leet[] = {' ', '@', '8', '(', 'D', '3', 'F', '6', '#', '!', 'J', 'K', '1', 'M', 'N', '0', 'P', 'Q', 'R', '$', '7', 'U', 'V', 'W', 'X', 'Y', '2'};
-        char speak[] = {' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-        String leetSpeak = "";
-
-        System.out.println("Write something.");
-        String input = sc.next().toUpperCase();
-
-
-        for (int i = 0; i < leet.length; i++){
-            leetSpeak += leet[input.charAt(i) - 'A'];
-
-            if (input.contains(" ")){
-
-            }
-
-            System.out.println(leetSpeak);
-        }*/
 
 
     }
