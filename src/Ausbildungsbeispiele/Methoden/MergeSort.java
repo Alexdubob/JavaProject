@@ -32,7 +32,7 @@ public class MergeSort {
         int[] leftHalf = new int[midNumber];
         int[] rightHalf = new int[numbersLength - midNumber];
 
-        //fill leftHalft with numbers from the Array
+        //fill leftHalf with numbers from the Array
         for (int i = 0; i < midNumber; i++) {
             leftHalf[i] = numbers[i];
         }
