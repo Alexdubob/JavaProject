@@ -15,7 +15,6 @@ public class DivideAndConquer {
             numbers[i] = random.nextInt(100);
         }
 
-
         int midNumber = numbersLength / 2;
         int[] leftHalf = new int[midNumber];
         int[] rightHalf = new int[numbersLength - midNumber];
