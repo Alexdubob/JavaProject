@@ -1,31 +1,15 @@
 package Ausbildungsbeispiele.Methoden;
-
-import java.util.Arrays;
 import java.util.Random;
+import java.util.Arrays;
 
 public class DivideAndConquer {
     public static void main(String[] args) {
         Random random = new Random();
-        int[] numbers = new int[20];
-
-        //fill Array with random numbers
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = random.nextInt(100);
-        }
-        System.out.println("Before: ");
-        System.out.println(Arrays.toString(numbers));
-
-        mergeSort(numbers);
-
-        System.out.println("After: ");
-        System.out.println(Arrays.toString(numbers));
-    }
-
-    private static void mergeSort(int[] numbers) {
-        //mergesort
+        int[] numbers = new int[21];
         int numbersLength = numbers.length;
-        if (numbersLength < 2) {
-            return;
+
+        for(int i =0; i < numbers.length; i++){
+            numbers[i] = random.nextInt(100);
         }
 
         int midNumber = numbersLength / 2;
@@ -41,45 +25,9 @@ public class DivideAndConquer {
             rightHalf[i - midNumber] = numbers[i];
         }
 
-        mergeSort(leftHalf);
-        mergeSort(rightHalf);
+        System.out.println(Arrays.toString(numbers));
+        System.out.println(Arrays.toString(leftHalf));
+        System.out.println(Arrays.toString(rightHalf));
 
-        merge(numbers, leftHalf,rightHalf);
     }
-
-    private static void merge(int[] numbers, int[] leftHalf, int[] rightHalf) {
-        int leftSize = leftHalf.length;
-        int rightSize = rightHalf.length;
-
-        int i = 0, j = 0, k = 0;
-
-        while (i < leftSize && j < rightSize) {
-            if (leftHalf[i] <= rightHalf[j]) {
-                numbers[k] = leftHalf[i];
-                i++;
-            }
-            else {
-                numbers[k] = rightHalf[j];
-                j++;
-            }
-            k++;
-        }
-        while (i < leftSize){
-            numbers[k] = leftHalf[i];
-            i++;
-            k++;
-        }
-        while (j < rightSize){
-            numbers[k] = rightHalf[j];
-            j++;
-            k++;
-        }
-    }
-        private static void printArray ( int[] numbers){
-            for (int i = 0; i < numbers.length; i++) {
-                System.out.println(numbers[i]);
-            }
-
-
-        }
-    }
+}

@@ -48,7 +48,7 @@ public class GameOfLife {
             }
             field = newField;
 
-            // Warten auf Benutzereingabe oder automatisch weitermachen
+            // Warten auf Benutzereingabe oder  weitermachen
             System.out.print("Weiter mit Enter, Abbruch mit q: ");
             String input = scanner.nextLine();
             if (input.equals("q")) {
