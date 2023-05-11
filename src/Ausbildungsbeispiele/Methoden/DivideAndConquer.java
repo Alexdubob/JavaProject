@@ -7,7 +7,6 @@ public class DivideAndConquer {
     public static void main(String[] args) {
         Random random = new Random();
 
-
         int[] numbers = new int[21];
         int numbersLength = numbers.length;
 
@@ -19,11 +18,11 @@ public class DivideAndConquer {
         int[] leftHalf = new int[midNumber];
         int[] rightHalf = new int[numbersLength - midNumber];
 
-        //fill leftHalft with numbers from the Array
+        //fill leftHalf with numbers from the Array
         for (int i = 0; i < midNumber; i++) {
             leftHalf[i] = numbers[i];
         }
-        //fill rightHalft with numbers from the Array
+        //fill rightHalf with numbers from the Array
         for (int i = midNumber; i < numbersLength; i++) {
             rightHalf[i - midNumber] = numbers[i];
         }
@@ -54,7 +53,11 @@ public class DivideAndConquer {
 
         System.out.println("The total maximum is: " + max);
 
+        System.out.println();
+
 
     }
 }
+
+
 
