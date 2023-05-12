@@ -10,15 +10,15 @@ public class DivideAndConquerTest {
             return findMaxHelper(arr, 0, arr.length - 1);
         }
 
-        private static int findMaxHelper(int[] arr, int left, int right) {
+        private static int findMaxHelper(int[] numbers, int left, int right) {
             if (left == right) {
-                return arr[left];
+                return numbers[left];
             }
             else{
 
                 int mid = (left + right) / 2;
-                int maxLeft = findMaxHelper(arr, left, mid);
-                int maxRight = findMaxHelper(arr, mid + 1, right);
+                int maxLeft = findMaxHelper(numbers, left, mid);
+                int maxRight = findMaxHelper(numbers, mid + 1, right);
                 if (maxLeft > maxRight) {
                     return maxLeft;
                 } else {
