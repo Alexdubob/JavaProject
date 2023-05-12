@@ -11,9 +11,9 @@ public class SetTheory {
         Set<Integer> setB = setOf(3, 5, 7);
         Set<Integer> setC = setOf(5, 7, 9);
 
-        System.out.println(setA);
-        System.out.println(setB);
-        System.out.println(setC);
+        System.out.println("Set A " + setA);
+        System.out.println("Set B " + setB);
+        System.out.println("Set C " + setC);
 
 
         Set<Integer> differenceSetA = new HashSet<>(setA);
