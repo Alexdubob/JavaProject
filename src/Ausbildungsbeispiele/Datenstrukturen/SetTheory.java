@@ -11,42 +11,42 @@ public class SetTheory {
         Set<Integer> setB = setOf(3, 5, 7);
         Set<Integer> setC = setOf(5, 7, 9);
 
-        System.out.println("Set A " + setA);
-        System.out.println("Set B " + setB);
-        System.out.println("Set C " + setC);
+        System.out.println("Set A: " + setA);
+        System.out.println("Set B: " + setB);
+        System.out.println("Set C: " + setC);
 
 
         Set<Integer> differenceSetA = new HashSet<>(setA);
         differenceSetA.removeAll(setB);
         differenceSetA.removeAll(setC);
         assertEquals(setOf(), differenceSetA);
-        System.out.println("The unique number from A " + differenceSetA);
+        System.out.println("The unique number from A: " + differenceSetA);
 
         Set<Integer> differenceSetB = new HashSet<>(setB);
         differenceSetB.removeAll(setA);
         differenceSetB.removeAll(setC);
         assertEquals(setOf(), differenceSetB);
-        System.out.println("The unique number from B " + differenceSetB);
+        System.out.println("The unique number from B: " + differenceSetB);
 
         Set<Integer> differenceSetC = new HashSet<>(setC);
         differenceSetC.removeAll(setA);
         differenceSetC.removeAll(setB);
         assertEquals(setOf(), differenceSetC);
-        System.out.println("The unique number from C " + differenceSetC);
+        System.out.println("The unique number from C: " + differenceSetC);
 
         Set<Integer> intersectSet = setA.stream()
                 .filter(setB::contains)
                 .filter(setC::contains)
                 .collect(Collectors.toSet());
         assertEquals(setOf(), intersectSet);
-        System.out.println("Die gemeinsamen Zahlen von allen Sets " + intersectSet);
+        System.out.println("The intersection: " + intersectSet);
 
 
         Set<Integer> uni_temp = new HashSet<>();
         uni_temp.addAll(setA);
         uni_temp.addAll(setB);
         uni_temp.addAll(setC);
-        System.out.println("Die vereinigungsmenge aller Sets " + uni_temp);
+        System.out.println("The union Set: " + uni_temp);
 
 
     }
