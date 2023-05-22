@@ -19,8 +19,7 @@ public class PeopleManagement {
     public static void main(String[] args) {
         PeopleManagement pv= new PeopleManagement();
         pv.createperson("John","Doe");
-        pv.createperson("Jane","Smith","01.01.1990",""
-        pv.createperson();
+        pv.createperson("Jane","Smith","01.01.1990");
 
     }
 
