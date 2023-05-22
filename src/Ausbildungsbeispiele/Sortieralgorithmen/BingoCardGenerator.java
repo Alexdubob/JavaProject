@@ -39,7 +39,10 @@ public class BingoCardGenerator {
                 number = random.nextInt(15) + 31;
             } while (usedNumbers.contains(number));
             usedNumbers.add(number);
+
             card[i][2] = number;
+
+
         }
 
         // Fülle die G-Spalte mit 5 zufälligen Nummern aus dem Bereich 46-60
