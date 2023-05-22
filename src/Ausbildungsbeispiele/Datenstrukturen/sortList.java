@@ -20,8 +20,8 @@ public class sortList {
                 if (intList.get(i) > intList.get(j)) {
 
                     int tmp = intList.get(i);
-              //     intList.set(i) = intList.get(i);
-               //     intList.set(j) = tmp;
+                    intList.set(i,intList.get(j));
+                    intList.set(j,tmp);
 
                 }
 

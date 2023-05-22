@@ -18,6 +18,7 @@ public class BingoCardGenerator {
             usedNumbers.add(number);
             card[i][0] = number;
         }
+        card[2][2] = 0;
 
         // Fülle die I-Spalte mit 5 zufälligen Nummern aus dem Bereich 16-30
         usedNumbers.clear();
