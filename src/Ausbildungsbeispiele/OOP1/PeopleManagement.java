@@ -3,13 +3,13 @@ package Ausbildungsbeispiele.OOP1;
 
 public class PeopleManagement {
 
-    public void createperson(String vorname, String nachname){
+    public void createPerson(String vorname, String nachname){
         Person person = new Person(vorname,nachname);
         personenListe.add(person);
-    }public void createperson(String vorname, String nachname, String geburtsdatum, String adresse, String geschlecht){
+    }public void createPerson(String vorname, String nachname, String geburtsdatum, String adresse, String geschlecht){
         Person person = new Person(vorname,nachname, geburtsdatum, adresse,geschlecht);
         personenListe.add(person);
-    }public void createperson(String vorname, String nachname,String geburtstadum){
+    }public void createPerson(String vorname, String nachname,String geburtstadum){
         Person person = new Person(vorname,nachname, geburtstadum);
         personenListe.add(person);
     }
