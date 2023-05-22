@@ -15,7 +15,7 @@ public class BingoCardGenerator {
             for (int j = 0; j < 5; j++) {
                 int number;
                 do {
-                    number = random.nextInt(15) + 1 + 15  * j;
+                    number = random.nextInt(15) + 1  + 15  * j;
                 } while (usedNumbers.contains(number));
                 usedNumbers.add(number);
                 card[i][j] = number;

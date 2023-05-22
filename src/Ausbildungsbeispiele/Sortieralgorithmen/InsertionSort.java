@@ -8,8 +8,7 @@ public class InsertionSort {
 
         Random random = new Random();
 
-
-        int [] numbers = new int [20];
+        int [] numbers = new int [10000];
 
         for (int i = 0; i< numbers.length; i++){
             numbers[i] = random.nextInt(100);
@@ -26,9 +25,9 @@ public class InsertionSort {
             numbers[j + 1] = temp;
 
 
-            System.out.println("sorted Array: " + Arrays.toString(numbers));
-        }
 
+        }
+        System.out.println("sorted Array: " + Arrays.toString(numbers));
 
 
     }

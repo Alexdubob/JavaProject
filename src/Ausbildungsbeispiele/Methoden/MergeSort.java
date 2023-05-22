@@ -6,7 +6,7 @@ import java.util.Random;
 public class MergeSort {
     public static void main(String[] args) {
         Random random = new Random();
-        int[] numbers = new int[100];
+        int[] numbers = new int[10000000];
 
         //fill Array with random numbers
         for (int i = 0; i < numbers.length; i++) {
