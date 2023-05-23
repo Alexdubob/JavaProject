@@ -8,7 +8,7 @@ public class PeopleManagement {
 
     public void createPerson(String firstName, String lastName) {
         Person person = new Person(firstName, lastName);
-        personList.add(person.toString());
+        personList.add(person);
     }
 
     public void createPerson(String firstName, String lastName, String birthday, Adress adress, Gender gender) {
@@ -18,7 +18,7 @@ public class PeopleManagement {
 
     public void createPerson(String firstName, String lastName, String birthday, Gender gender) {
         Person person = new Person(firstName,lastName,birthday,gender);
-        personList.add(person.toString());
+        personList.add(person);
     }
     public void deletePerson(Person person){
         personList.remove(person);

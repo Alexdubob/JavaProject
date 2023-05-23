@@ -40,8 +40,8 @@ class Person {
 
     public static void main(String[] args) {
         PeopleManagement pm = new PeopleManagement(){
-            pm.createPerson
-        }
+            pm.createPerson = "John","Johnson"
+        };
     }
 
 }
