@@ -1,4 +1,4 @@
-package Ausbildungsbeispiele.OOP1;
+package Ausbildungsbeispiele.OOP1.PeopleManagement;
 
 class Adress {
     String postalCode;

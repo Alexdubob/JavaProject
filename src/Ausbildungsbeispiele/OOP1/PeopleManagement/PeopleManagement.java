@@ -1,4 +1,4 @@
-package Ausbildungsbeispiele.OOP1;
+package Ausbildungsbeispiele.OOP1.PeopleManagement;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ public class PeopleManagement {
 
     public void createPerson(String firstName, String lastName, String birthday, Adress adress, Gender gender) {
         Person person = new Person(firstName,lastName,birthday,adress,gender);
-        personList.add(person.toString());
+        personList.add(person);
     }
 
     public void createPerson(String firstName, String lastName, String birthday, Gender gender) {
@@ -24,8 +24,21 @@ public class PeopleManagement {
         personList.remove(person);
     }
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "First name=" + firstName +
+                ", Last Name=" + lastName +
+                ", Birthday=" + birthday +
+                ", Adress=" + adress +
+                ", Gender=" + gender +
+                "}";
+    }
+
     public static void main(String[] args) {
-        PeopleManagement pm = new PeopleManagement();
+        PeopleManagement pm = new PeopleManagement(){
+            pm.createPerson = "Alex,R"
+        }
 
     }
 }

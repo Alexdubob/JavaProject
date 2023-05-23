@@ -1,4 +1,4 @@
-package Ausbildungsbeispiele.OOP1;
+package Ausbildungsbeispiele.OOP1.PeopleManagement;
 
 class Person {
     private String firstName;
@@ -27,9 +27,23 @@ class Person {
         this.gender = gender;
     }
 
-
-    public Person(String firstName, String lastName, String birthday, PeopleManagement.Adress adress, Gender gender) {
+    @Override
+    public String toString() {
+        return "Person{" +
+                "First name=" + firstName +
+                ", Last Name=" + lastName +
+                ", Birthday=" + birthday +
+                ", Adress=" + adress +
+                ", Gender=" + gender +
+                "}";
     }
+
+    public static void main(String[] args) {
+        PeopleManagement pm = new PeopleManagement(){
+            pm.createPerson
+        }
+    }
+
 }
 
 
