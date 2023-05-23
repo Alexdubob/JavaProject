@@ -1,4 +1,5 @@
 package Ausbildungsbeispiele.Datenstrukturen;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,48 +16,41 @@ public class SetTheory {
         System.out.println("Set B: " + setB);
         System.out.println("Set C: " + setC);
 
+        System.out.println("union" + union(union(setA, setB), setC));
 
-        Set<Integer> differenceSetA = new HashSet<>(setA);
-        differenceSetA.removeAll(setB);
-        differenceSetA.removeAll(setC);
-        assertEquals(setOf(), differenceSetA);
-        System.out.println("The unique number from A: " + differenceSetA);
+        System.out.println("difference" + difference(union(setA,setB),setC));
 
-        Set<Integer> differenceSetB = new HashSet<>(setB);
-        differenceSetB.removeAll(setA);
-        differenceSetB.removeAll(setC);
-        assertEquals(setOf(), differenceSetB);
-        System.out.println("The unique number from B: " + differenceSetB);
-
-        Set<Integer> differenceSetC = new HashSet<>(setC);
-        differenceSetC.removeAll(setA);
-        differenceSetC.removeAll(setB);
-        assertEquals(setOf(), differenceSetC);
-        System.out.println("The unique number from C: " + differenceSetC);
-
-        Set<Integer> intersectSet = setA.stream()
-                .filter(setB::contains)
-                .filter(setC::contains)
-                .collect(Collectors.toSet());
-        assertEquals(setOf(), intersectSet);
-        System.out.println("The intersection: " + intersectSet);
-
-
-        Set<Integer> uni_temp = new HashSet<>();
-        uni_temp.addAll(setA);
-        uni_temp.addAll(setB);
-        uni_temp.addAll(setC);
-        System.out.println("The union Set: " + uni_temp);
-
+        System.out.println("intersect" + intersect(setA, intersect(setB,setC)));
 
     }
+    private static Set<Integer> setOf(Integer... values) {
+        return new HashSet<Integer>(Arrays.asList(values));
+    }
 
+
+    static Set<Integer> union(Set<Integer> x, Set<Integer> y) {
+        Set<Integer> uni_temp = new HashSet<>();
+        uni_temp.addAll(x);
+        uni_temp.addAll(y);
+        return uni_temp;
+    }
+
+    static Set<Integer> difference(Set<Integer> x, Set<Integer> y) {
+        Set<Integer> differenceSetA = new HashSet<>(x);
+        differenceSetA.removeAll(y);
+        assertEquals(setOf(), differenceSetA);
+        return differenceSetA;
+    }
+
+    static Set<Integer> intersect(Set<Integer> x, Set<Integer> y) {
+        Set<Integer> intersectSet = x.stream()
+                .filter(y::contains)
+                .collect(Collectors.toSet());
+        assertEquals(setOf(), intersectSet);
+        return intersectSet;
+    }
     private static void assertEquals(Set<Integer> setOf, Set<Integer> differenceSet) {
     }
 
-    private static Set<Integer> setOf(Integer... values) {
-        return new HashSet<Integer>(Arrays.asList(values));
 
-
-    }
 }

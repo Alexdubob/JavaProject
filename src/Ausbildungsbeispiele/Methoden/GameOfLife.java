@@ -7,9 +7,10 @@ public class GameOfLife {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
+        int n = 0;
         // Initialisierung
         System.out.print("Feldgröße eingeben: ");
-        int n = scanner.nextInt();
+        n = scanner.nextInt();
         boolean[][] field = new boolean[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -17,36 +18,13 @@ public class GameOfLife {
             }
         }
 
+
         // Generationen durchlaufen
         int generation = 0;
         while (true) {
-            // Spielfeld visualisieren
-            System.out.println("Generation " + generation + ":");
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    System.out.print(field[i][j] ? "#" : ".");
-                }
-                System.out.println();
-            }
 
-            // Neue Generation berechnen
-            boolean[][] newField = new boolean[n][n];
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    int neighbors = countLivingNeighbors(field, i, j);
-                    if (field[i][j] && (neighbors == 2 || neighbors == 3)) {
-                        // Zelle bleibt am Leben
-                        newField[i][j] = true;
-                    } else if (!field[i][j] && neighbors == 3) {
-                        // Zelle wird geboren
-                        newField[i][j] = true;
-                    } else {
-                        // Zelle stirbt
-                        newField[i][j] = false;
-                    }
-                }
-            }
-            field = newField;
+            print(field,generation,n);
+            field = nextGeneration(field,n);
 
             // Warten auf Benutzereingabe oder  weitermachen
             System.out.print("Weiter mit Enter, Abbruch mit q: ");
@@ -77,6 +55,40 @@ public class GameOfLife {
             }
         }
         return count;
+    }
 
+
+    static void print(boolean[][]field, int generation,int n) {
+            // Spielfeld visualisieren
+            System.out.println("Generation " + generation + ":");
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    System.out.print(field[i][j] ? "#" : ".");
+                }
+                System.out.println();
+            }
+        }
+
+
+    static boolean[][] nextGeneration (boolean[][]field,int n){
+        // Neue Generation berechnen
+        boolean[][] newField = new boolean[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                int neighbors = countLivingNeighbors(field, i, j);
+                if (field[i][j] && (neighbors == 2 || neighbors == 3)) {
+                    // Zelle bleibt am Leben
+                    newField[i][j] = true;
+                } else if (!field[i][j] && neighbors == 3) {
+                    // Zelle wird geboren
+                    newField[i][j] = true;
+                } else {
+                    // Zelle stirbt
+                    newField[i][j] = false;
+                }
+            }
+        }
+
+        return newField;
     }
 }

@@ -1,28 +1,37 @@
 package Ausbildungsbeispiele.OOP1;
 
+import java.util.ArrayList;
 
 public class PeopleManagement {
+    ArrayList<String> personList = new ArrayList();
 
-    public void createPerson(String vorname, String nachname){
-        Person person = new Person(vorname,nachname);
-        personenListe.add(person);
-    }public void createPerson(String vorname, String nachname, String geburtsdatum, String adresse, String geschlecht){
-        Person person = new Person(vorname,nachname, geburtsdatum, adresse,geschlecht);
-        personenListe.add(person);
-    }public void createPerson(String vorname, String nachname,String geburtstadum){
-        Person person = new Person(vorname,nachname, geburtstadum);
-        personenListe.add(person);
+
+    public void createPerson(String firstName, String lastName) {
+        Person person = new Person(firstName, lastName);
+        personList.add(person.toString());
+    }
+
+    public void createPerson(String firstName, String lastName, String birthday, Adress adress, Gender gender) {
+        Person person = new Person(firstName,lastName,birthday,adress,gender);
+        personList.add(person.toString());
+    }
+
+    public void createPerson(String firstName, String lastName, String birthday, Gender gender) {
+        Person person = new Person(firstName,lastName,birthday,gender);
+        personList.add(person.toString());
     }
     public void deletePerson(Person person){
-        personenListe.remove(person);
+        personList.remove(person);
     }
+
     public static void main(String[] args) {
-        PeopleManagement pv= new PeopleManagement();
-        pv.createperson("John","Doe");
-        pv.createperson("Jane","Smith","01.01.1990");
+        PeopleManagement pm = new PeopleManagement();
 
     }
-
-
-
 }
+
+
+
+
+
+
