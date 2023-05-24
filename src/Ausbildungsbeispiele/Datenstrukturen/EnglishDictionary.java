@@ -53,15 +53,11 @@ public class EnglishDictionary {
                         dictionaryGer.remove(deleteWord);
                     }
                 }
-
             }
 
             if (option == 3) {
                 System.out.println("What word are you lookig for? ");
                 String getWord = scanner.next();
-
-                String key = null;
-                String valueToFind = getWord;
 
                 if(dictionaryGer.containsKey(getWord))
                 System.out.println(dictionaryGer.get(getWord));

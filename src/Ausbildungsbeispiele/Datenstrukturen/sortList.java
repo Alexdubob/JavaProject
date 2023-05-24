@@ -28,9 +28,8 @@ public class sortList {
             }
 
         }
-        for (int i: intList) {
-            System.out.println(i);
-        }
+            System.out.println("sorted List: " + intList);
+
 
     }
 }

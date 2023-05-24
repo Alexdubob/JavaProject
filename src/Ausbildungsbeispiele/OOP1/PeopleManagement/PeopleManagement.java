@@ -1,5 +1,7 @@
 package Ausbildungsbeispiele.OOP1.PeopleManagement;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 
 public class PeopleManagement {
@@ -8,41 +10,36 @@ public class PeopleManagement {
 
     public void createPerson(String firstName, String lastName) {
         Person person = new Person(firstName, lastName);
-        personList.add(String.valueOf(person));
+        personList.add(person);
     }
 
     public void createPerson(String firstName, String lastName, String birthday, Adress adress, Gender gender) {
-        Person person = new Person(firstName,lastName,birthday,adress,gender);
-        personList.add(String.valueOf(person));
+        Person person = new Person(firstName, lastName, birthday, adress, gender);
+        personList.add(person);
     }
 
     public void createPerson(String firstName, String lastName, String birthday, Gender gender) {
-        Person person = new Person(firstName,lastName,birthday,gender);
-        personList.add(String.valueOf(person));
+        Person person = new Person(firstName, lastName, birthday, gender);
+        personList.add(person);
     }
-    public void deletePerson(Person person){
+
+    public void deletePerson(Person person) {
         personList.remove(person);
     }
 
-    /*@Override
-    public String toString() {
-        return "Person{ " +
-                "First name: " + firstName +
-                ", Last Name: " + lastName +
-                ", Birthday: " + birthday +
-                ", Adress: " + adress +
-                ", Gender: " + gender +
-                " }";
-    }*/
 
-   /* public static void main(String[] args) {
+    public static void main(String[] args) {
         PeopleManagement pm = new PeopleManagement(){
-            .createPerson = "Alex,R"
+            pm.createPerson = ("Alex","Reinhardt")
+            pm.createPerson = ("Alex","Reinhardt","15.10.1992",new Adress(postalCode"4053", location"Haid", streetName"Wohnpark", streetNumber"20"),new Gender ("male"))
+            pm.createPerson = ("Alex","Reinhardt","15.10.1992",Gender"male");
+            System.out.println(personList);
 
         }
 
-    }*/
 }
+
+
 
 
 
