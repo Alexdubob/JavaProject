@@ -29,12 +29,12 @@ class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "First name=" + firstName +
-                ", Last Name=" + lastName +
-                ", Birthday=" + birthday +
-                ", Adress=" + adress +
-                ", Gender=" + gender +
+        return "Person {" +
+                "First name = " + firstName +
+                ", Last Name = " + lastName +
+                ", Birthday = " + birthday +
+                ", Adress = " + adress +
+                ", Gender = " + gender +
                 "}";
 
     }

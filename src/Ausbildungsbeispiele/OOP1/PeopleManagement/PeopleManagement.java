@@ -5,7 +5,7 @@ import org.w3c.dom.ls.LSOutput;
 import java.util.ArrayList;
 
 public class PeopleManagement {
-    ArrayList<String> personList = new ArrayList();
+    ArrayList<Person> personList = new ArrayList();
 
 
     public void createPerson(String firstName, String lastName) {
@@ -27,15 +27,25 @@ public class PeopleManagement {
         personList.remove(person);
     }
 
+    public String toString() {
+        String s = "";
+        for (Person p : personList) {
+            s += p.toString()+"\n";
+        }
+        return s;
+    }
+
 
     public static void main(String[] args) {
-        PeopleManagement pm = new PeopleManagement(){
-            pm.createPerson = ("Alex","Reinhardt")
-            pm.createPerson = ("Alex","Reinhardt","15.10.1992",new Adress(postalCode"4053", location"Haid", streetName"Wohnpark", streetNumber"20"),new Gender ("male"))
-            pm.createPerson = ("Alex","Reinhardt","15.10.1992",Gender"male");
-            System.out.println(personList);
+        PeopleManagement pm = new PeopleManagement();
+        pm.createPerson("Alex", "Reinhardt");
+        pm.createPerson("Alex","Reinhardt","15.10.1992",new Adress("4053", "Haid", "Wohnpark", "20"),Gender.male);
+        pm.createPerson("Alex", "Reinhardt", "15.10.1992", Gender.male);
+        pm.createPerson("Maria","Mair","22.08.1991",new Adress("5050", "Linz", "Haudraufweg", "69"),Gender.female);
 
-        }
+        System.out.println(pm);
+
+    }
 
 }
 
