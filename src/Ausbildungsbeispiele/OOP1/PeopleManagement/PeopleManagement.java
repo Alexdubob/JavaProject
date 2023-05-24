@@ -8,39 +8,40 @@ public class PeopleManagement {
 
     public void createPerson(String firstName, String lastName) {
         Person person = new Person(firstName, lastName);
-        personList.add(person);
+        personList.add(String.valueOf(person));
     }
 
     public void createPerson(String firstName, String lastName, String birthday, Adress adress, Gender gender) {
         Person person = new Person(firstName,lastName,birthday,adress,gender);
-        personList.add(person);
+        personList.add(String.valueOf(person));
     }
 
     public void createPerson(String firstName, String lastName, String birthday, Gender gender) {
         Person person = new Person(firstName,lastName,birthday,gender);
-        personList.add(person);
+        personList.add(String.valueOf(person));
     }
     public void deletePerson(Person person){
         personList.remove(person);
     }
 
-    @Override
+    /*@Override
     public String toString() {
-        return "Person{" +
-                "First name=" + firstName +
-                ", Last Name=" + lastName +
-                ", Birthday=" + birthday +
-                ", Adress=" + adress +
-                ", Gender=" + gender +
-                "}";
-    }
+        return "Person{ " +
+                "First name: " + firstName +
+                ", Last Name: " + lastName +
+                ", Birthday: " + birthday +
+                ", Adress: " + adress +
+                ", Gender: " + gender +
+                " }";
+    }*/
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         PeopleManagement pm = new PeopleManagement(){
-            pm.createPerson = "Alex,R"
+            .createPerson = "Alex,R"
+
         }
 
-    }
+    }*/
 }
 
 

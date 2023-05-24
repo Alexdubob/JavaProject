@@ -36,14 +36,8 @@ class Person {
                 ", Adress=" + adress +
                 ", Gender=" + gender +
                 "}";
-    }
 
-    public static void main(String[] args) {
-        PeopleManagement pm = new PeopleManagement(){
-            pm.createPerson = "John","Johnson"
-        };
     }
-
 }
 
 

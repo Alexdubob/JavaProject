@@ -1,5 +1,6 @@
 package Ausbildungsbeispiele.Datenstrukturen;
 
+import java.security.Key;
 import java.util.*;
 
 public class EnglishDictionary {
@@ -7,9 +8,11 @@ public class EnglishDictionary {
         Scanner scanner = new Scanner(System.in);
 
 
-        Map<String, String> dictionary = new HashMap<>();
+        Map<String, String> dictionaryEng = new HashMap<>();
+        Map<String, String> dictionaryGer = new HashMap<>();
 
-        dictionary.put("hello", "hallo");
+        dictionaryEng.put("hello", "hallo");
+        dictionaryGer.put("hallo", "hello");
 
 
         int option = 0;
@@ -28,16 +31,29 @@ public class EnglishDictionary {
                 String addEnglish = scanner.next();
                 System.out.println("Whats the translation of your word?");
                 String addGerman = scanner.next();
-                dictionary.put(addEnglish, addGerman);
+                dictionaryEng.put(addEnglish, addGerman);
+                dictionaryGer.put(addGerman, addEnglish);
             }
             String deleteWord = "";
             if (option == 2) {
                     System.out.println("What word would you like to delete from the dictionary? ");
                 deleteWord = scanner.next();
-                dictionary.remove(deleteWord);
-                if (!dictionary.containsKey(deleteWord)) {
+                if (!dictionaryEng.containsKey(deleteWord) && !dictionaryGer.containsKey(deleteWord)) {
                     System.out.println("there is no such word in the dictionary");
                 }
+                String value = dictionaryEng.get(deleteWord);
+                if (value != null){
+                    dictionaryEng.remove(deleteWord);
+                    dictionaryGer.remove(value);
+                }
+                else {
+                    value = dictionaryGer.get(deleteWord);
+                    if(value != null){
+                        dictionaryEng.remove(value);
+                        dictionaryGer.remove(deleteWord);
+                    }
+                }
+
             }
 
             if (option == 3) {
@@ -46,22 +62,25 @@ public class EnglishDictionary {
 
                 String key = null;
                 String valueToFind = getWord;
-                for(Map.Entry<String,String>entry:dictionary.entrySet()){
-                    if(entry.getValue().equals(valueToFind)) {
-                        key = entry.getKey();
-                        System.out.println(key);
-                    }
-                    else {
-                        System.out.println(dictionary.get(getWord));
-                    }
 
+                if(dictionaryGer.containsKey(getWord))
+                System.out.println(dictionaryGer.get(getWord));
+
+                else if (dictionaryEng.containsKey(getWord))
+                System.out.println(dictionaryEng.get(getWord));
+
+                if (!dictionaryEng.containsKey(getWord) && !dictionaryGer.containsKey(getWord)) {
+                    System.out.println("there is no such word in the dictionary");
                 }
-
 
             }
 
         }
-        System.out.println(dictionary);
+        System.out.println(dictionaryEng);
+        System.out.println(dictionaryGer);
+
+
+
 
 
     }
