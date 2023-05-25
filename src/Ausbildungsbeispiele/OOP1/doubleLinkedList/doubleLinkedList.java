@@ -28,8 +28,20 @@ public class doubleLinkedList {
         }
     }
 
-    public void printNodes() {
+    public void printNodesHead() {
         Node current = head;
+        if (head == null) {
+            System.out.println("Double linked List is empty");
+            return;
+        }
+        System.out.println("Nodes of double linked List: ");
+        while (current != null) {
+            System.out.println(current.value + " ");
+            current = current.next;
+        }
+    }
+    public void printNodesTail() {
+        Node current = tail;
         if (head == null) {
             System.out.println("Double linked List is empty");
             return;
@@ -49,7 +61,8 @@ public class doubleLinkedList {
         dlList.addNode(40);
         dlList.addNode(50);
 
-        dlList.printNodes();
+        dlList.printNodesHead();
+        dlList.printNodesTail();
 
 
     }
