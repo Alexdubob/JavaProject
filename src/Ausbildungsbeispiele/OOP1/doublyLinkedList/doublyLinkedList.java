@@ -25,6 +25,7 @@ public class doublyLinkedList {
         System.out.println("Element at index 3 " + dlList.getNode(3));
         System.out.println("The size of the current list is: " + dlList.nodeSize());
         dlList.removeAt(0);
+        dlList.removeAt(2);
         dlList.removeAt(dlList.nodeSize() - 1);
         System.out.println("After deletion");
         dlList.printNodesHead();
