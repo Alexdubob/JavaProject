@@ -1,15 +1,14 @@
 package Ausbildungsbeispiele.OOP1.doublyLinkedList;
+
 public class doublyLinkedList {
     class Node {
         int value;
         Node previous;
         Node next;
-
         public Node(int value) {
             this.value = value;
         }
     }
-
     Node head = null;
     Node tail = null;
 
@@ -20,22 +19,19 @@ public class doublyLinkedList {
         dlList.addNode(30);
         dlList.addNode(40);
         dlList.addNode(50);
-        dlList.printNodesHead();
-        dlList.printNodesTail();
 
-        System.out.println("Element at index 3 " + dlList.getNode(3));
-        System.out.println("The size of the current list is: " + dlList.nodeSize(dlList.head));
-        System.out.println("Before deletion ");
         dlList.printNodesHead();
         dlList.printNodesTail();
-        dlList.remove(1);
+        System.out.println("Element at index 3 " + dlList.getNode(3));
+        System.out.println("The size of the current list is: " + dlList.nodeSize());
+        dlList.removeAt(0);
+        dlList.removeAt(dlList.nodeSize() - 1);
         System.out.println("After deletion");
         dlList.printNodesHead();
         dlList.printNodesTail();
-        dlList.addAfter(2,100);
-        dlList.printNodesHead();
-        dlList.printNodesTail();
     }
+
+
 
     public void addNode(int value) {
         Node newNode = new Node(value);
@@ -52,6 +48,7 @@ public class doublyLinkedList {
         }
     }
 
+
     public void addAfter(int index, int value) {
         doublyLinkedList.Node n = head;
         doublyLinkedList.Node m = tail;
@@ -66,6 +63,7 @@ public class doublyLinkedList {
         m.previous = newNode;
     }
 
+
     public void printNodesHead() {
         Node current = head;
         if (head == null) {
@@ -79,6 +77,7 @@ public class doublyLinkedList {
         System.out.println(" ");
     }
 
+
     public void printNodesTail() {
         Node current = tail;
         if (tail == null) {
@@ -90,10 +89,11 @@ public class doublyLinkedList {
             current = current.previous;
         }
         System.out.println(" ");
-
     }
 
-    public int nodeSize(Node node) {
+
+    public int nodeSize() {
+        Node node = head;
         int size = 0;
         while (node != null) {
             size++;
@@ -102,9 +102,10 @@ public class doublyLinkedList {
         return size;
     }
 
+
     public int getNode(int value) {
         int index = 3;
-        if (index < nodeSize(head) / 2) {
+        if (index < nodeSize() / 2) {
             Node current = head;
             int count = 0;
             while (current != null) {
@@ -127,33 +128,45 @@ public class doublyLinkedList {
         return 0;
     }
 
-    public void remove(int position) {
-        if (head == null) {
-            return;
-        }
-        else {
-            Node current = head;
-            int n = position;
-            for (int i = 0; i < n; i++){
-                current = current.next;
-            }
-            if (current == head){
-                head = current.next;
-            }
-            else if (current == null) {
-                current = current.previous;
-            }
-            else{
-                current.previous.next = current.next;
-                current.next.previous = current.previous;
-            }
 
-        }
+    public Node deleteNode(Node del) {
+        if (head == null || tail == null)
+            return null;
 
+        if (head == del)
+            head = del.next;
+
+        if (tail == del)
+            tail = del.previous;
+
+        if (del.next != null)
+            del.next.previous = del.previous;
+
+        if (del.previous != null)
+            del.previous.next = del.next;
+
+        return head;
     }
 
 
+    public void removeAt(int position) {
+        if (head == null) {
+            return;
+        } else {
+            Node current = head;
 
-
-
+            for (int i = 0; current != null && i < position; i++) {
+                current = current.next;
+            }
+            if (current == null)
+                return;
+            deleteNode(current);
+        }
+    }
 }
+
+
+
+
+
+
