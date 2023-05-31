@@ -28,10 +28,11 @@ public class Queue {
         queue.printList();
         System.out.println("\nsize = " + queue.size());
         //stack.pop();
-        queue2 = queue.dequeue(3);
+        queue2 = queue.dequeue(6);
         queue2.printList();
         System.out.println();
         queue.printList();
+        System.out.println("\nsize = " + queue.size());
     }
 
     //inserts a new element at the end of the Queue
@@ -66,24 +67,19 @@ public class Queue {
         }
         head = head.next;
     }
-    public void deleteNode(Node del) {
-        System.out.println(head);
-        if (head == null){
-            System.out.println("Queue is empty");
-            return;
-        }
-
-        if (head == del)
-            head = del.next;
-    }
 
     //returns the first n elements of the Queue and removes them
     public Queue dequeue (int n) {
+        if (head == null){
+            System.out.println("Queue is empty");
+        }
         Queue s = new Queue();
         for (int i = 0; i < n; i++) {
             s.enqueue(head.value);
             head = head.next;
         }
+
+        System.out.println("\ndeleting: ");
         return s;
     }
     //prints the whole Queue
