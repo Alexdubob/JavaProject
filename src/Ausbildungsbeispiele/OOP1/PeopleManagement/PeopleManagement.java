@@ -1,7 +1,4 @@
 package Ausbildungsbeispiele.OOP1.PeopleManagement;
-
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayList;
 
 public class PeopleManagement {
