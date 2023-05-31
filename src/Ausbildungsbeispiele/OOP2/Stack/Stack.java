@@ -1,4 +1,5 @@
 package Ausbildungsbeispiele.OOP2.Stack;
+
 public class Stack {
     Node head;
 
@@ -14,16 +15,10 @@ public class Stack {
 
     public static void main(String[] args) {
         Stack stack = new Stack();
-        Stack stack2 = new Stack ();
+        Stack stack2 = new Stack();
 
         stack.push(10);
         stack.push(20);
-        stack.push(30);
-        stack.push(40);
-        stack.push(50);
-        stack.push(60);
-        stack.push(70);
-        stack.push(80);
         stack.push(90);
         stack.printList();
         System.out.println();
@@ -54,21 +49,24 @@ public class Stack {
     }
 
     //returns the last element of the stack and removes it from the stack
-    public void pop(){
-        if (head == null)
+    public void pop() {
+        if (head == null){
+            System.out.println("Stack is empty");
             return;
+        }
         head = head.next;
     }
+
     //returns the last element of the stack without modifying the stack
-   public int peek(){
-       if (head == null) {
-           System.out.println("Double linked List is empty");
-       }
-       return head.value;
+    public int peek() {
+        if (head == null) {
+            System.out.println("Stack is empty");
+        }
+        return head.value;
     }
 
     //returns the last n elements of the stack and removes them from the stack
-    public Stack pop (int n) {
+    public Stack pop(int n) {
         Stack s = new Stack();
         for (int i = 0; i < n; i++) {
             s.push(head.value);
@@ -77,6 +75,7 @@ public class Stack {
         System.out.println("Deleting: ");
         return s;
     }
+
     //prints the whole stack
     public void printList() {
         Node n = head;

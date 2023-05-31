@@ -58,22 +58,26 @@ public class Queue {
         return size;
     }
 
-    //returns the first element of the Queue and removes it from the Queue
+    //returns the first element of the Queue and removes it
     public void dequeue(){
-        if (head == null)
+        if (head == null){
+            System.out.println("Queue is empty");
             return;
+        }
         head = head.next;
     }
     public void deleteNode(Node del) {
         System.out.println(head);
-        if (head == null)
+        if (head == null){
+            System.out.println("Queue is empty");
             return;
+        }
 
         if (head == del)
             head = del.next;
     }
 
-    //returns the last n elements of the stack and removes them from the stack
+    //returns the first n elements of the Queue and removes them
     public Queue dequeue (int n) {
         Queue s = new Queue();
         for (int i = 0; i < n; i++) {
@@ -82,7 +86,7 @@ public class Queue {
         }
         return s;
     }
-    //prints the whole stack
+    //prints the whole Queue
     public void printList() {
         Node n = head;
         while (n != null) {
