@@ -1,4 +1,94 @@
 package Ausbildungsbeispiele.OOP2.Queue;
-
 public class Queue {
+    Node head;
+    Node tail;
+    static class Node {
+        int value;
+        Node next;
+        Node(int d) {
+            value = d;
+            next = null;
+        }
+    }
+
+    public static void main(String[] args) {
+        Queue queue = new Queue ();
+        Queue queue2 = new Queue();
+
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        queue.enqueue(40);
+        queue.enqueue(50);
+        queue.enqueue(60);
+        queue.enqueue(70);
+        queue.enqueue(80);
+        queue.enqueue(90);
+        queue.dequeue();
+        queue.printList();
+        System.out.println("\nsize = " + queue.size());
+        //stack.pop();
+        queue2 = queue.dequeue(3);
+        queue2.printList();
+        System.out.println();
+        queue.printList();
+    }
+
+    //inserts a new element at the end of the Queue
+    public void enqueue(int newElement) {
+        Node newNode = new Node(newElement);
+        if (head == null) {
+            head = tail = newNode;
+            tail.next = null;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
+            tail.next = null;
+        }
+    }
+
+    //returns the number of elements in the Queue
+    public int size() {
+        Node node = head;
+        int size = 0;
+        while (node != null) {
+            size++;
+            node = node.next;
+        }
+        return size;
+    }
+
+    //returns the first element of the Queue and removes it from the Queue
+    public void dequeue(){
+        if (head == null)
+            return;
+        head = head.next;
+    }
+    public void deleteNode(Node del) {
+        System.out.println(head);
+        if (head == null)
+            return;
+
+        if (head == del)
+            head = del.next;
+    }
+
+    //returns the last n elements of the stack and removes them from the stack
+    public Queue dequeue (int n) {
+        Queue s = new Queue();
+        for (int i = 0; i < n; i++) {
+            s.enqueue(head.value);
+            head = head.next;
+        }
+        return s;
+    }
+    //prints the whole stack
+    public void printList() {
+        Node n = head;
+        while (n != null) {
+            System.out.print(n.value + " ");
+            n = n.next;
+        }
+    }
 }
+

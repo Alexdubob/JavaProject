@@ -25,15 +25,14 @@ public class Stack {
         stack.push(70);
         stack.push(80);
         stack.push(90);
-        stack.pop();
         stack.printList();
-        System.out.println("\npeek = " + stack.peek());
-        System.out.println("size = " + stack.size());
-        //stack.pop();
+        System.out.println();
         stack2 = stack.pop(2);
         stack2.printList();
         System.out.println();
         stack.printList();
+        System.out.println("\npeek = " + stack.peek());
+        System.out.println("size = " + stack.size());
     }
 
     //inserts a new element at the top of the stack
@@ -60,15 +59,6 @@ public class Stack {
             return;
         head = head.next;
     }
-    public void deleteNode(Node del) {
-        System.out.println(head);
-        if (head == null)
-            return;
-
-        if (head == del)
-            head = del.next;
-    }
-
     //returns the last element of the stack without modifying the stack
    public int peek(){
        if (head == null) {
@@ -84,6 +74,7 @@ public class Stack {
             s.push(head.value);
             head = head.next;
         }
+        System.out.println("Deleting: ");
         return s;
     }
     //prints the whole stack
