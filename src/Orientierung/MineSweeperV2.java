@@ -92,41 +92,9 @@ public class MineSweeperV2 {
                             else {
                                 map[l][k] = 1;
                                 exploredFields++;
-
                             }
-
                         }
                     }
-                //}
-
-                //checks the next 2 neighbors
-//                else if (map[y][x] == -3) {
-//                    int k = x - 2;
-//                    if (k < 0)
-//                        k = 0;
-//                    for (; k <= x + 2 && k < map.length; k++) {
-//                        int l = y - 2;
-//                        if (l < 0)
-//                            l = 0;
-//                        for (; l <= y + 2 && l < map.length; l++) {
-//
-//                            if (map[l][k] == 0){
-//                                map[l][k] = 5;
-//                                mineCount--;
-//                                exploredFields++;
-//                            }
-//                            else {
-//                                map[l][k] = 1;
-//                                exploredFields++;
-//
-//                            }
-//                        }
-//                    }
-//                }
-
-//                else {
-//                    map[y][x] = 1;
-//                }
             }
 
             // Prints the map
