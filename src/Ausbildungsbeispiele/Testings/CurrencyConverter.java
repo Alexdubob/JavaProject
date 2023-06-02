@@ -23,7 +23,7 @@ public CurrencyConverter(){
     text1.setHorizontalAlignment(SwingConstants.RIGHT);
     panel.add(text1);
 
-    panel.add(new JLabel("Schilling"));
+    panel.add(new JLabel("Dollar"));
     text2 = new JTextField();
     text2.setHorizontalAlignment(SwingConstants.RIGHT);
     panel.add(text2);
@@ -47,7 +47,7 @@ public CurrencyConverter(){
     frame.setVisible(true);
 }
 double convert(double x){
-    return  x * 13.7603;
+    return  x * 1.08;
 }
 
     public static void main(String[] args) {
