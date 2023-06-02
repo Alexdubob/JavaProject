@@ -4,6 +4,8 @@ public class Lens {
 
     private static int lensCount = 0;
     private double minFocalLength;
+    private double maxFocalLength;
+
 
     public static int getLensCount() {
         return lensCount;
@@ -21,7 +23,16 @@ public class Lens {
         return maxFocalLength;
     }
 
-    private double maxFocalLength;
+    public void setMinFocalLength(double minFocalLength) {
+        this.minFocalLength = minFocalLength;
+    }
+
+    public void setMaxFocalLength(double maxFocalLength) {
+        if (maxFocalLength <= minFocalLength) {
+            throw new IllegalArgumentException("Maximum focal length must be greater than minimum focal length.");
+        }
+        this.maxFocalLength = maxFocalLength;
+    }
 
     public Lens(double minFocalLength, double maxFocalLength) {
 
@@ -32,18 +43,6 @@ public class Lens {
         this.minFocalLength = minFocalLength;
         this.maxFocalLength = maxFocalLength;
         lensCount++;
-    }
-
-
-    public void setMinFocalLength(double minFocalLength) {
-        this.minFocalLength = minFocalLength;
-    }
-
-    public void setMaxFocalLength(double maxFocalLength) {
-        if (maxFocalLength <= minFocalLength) {
-            throw new IllegalArgumentException("Maximum focal length must be greater than minimum focal length.");
-        }
-        this.maxFocalLength = maxFocalLength;
     }
 
 
