@@ -11,6 +11,12 @@ class Person {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+    public String getFirstName(){
+        return firstName;
+    }
+    public String getLastName(){
+        return lastName;
+    }
 
     public Person(String firstName, String lastName, String birthday, Adress adress, Gender gender) {
         this.firstName = firstName;
