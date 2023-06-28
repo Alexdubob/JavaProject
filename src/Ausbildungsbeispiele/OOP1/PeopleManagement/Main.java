@@ -19,22 +19,19 @@ public class Main {
             try {
                 pm.createPerson(firstName, lastName);
                 System.out.println("Person erfolgreich erstellt.");
-            } catch (InvalidPersonNameException e) {
+            }
+            catch (InvalidPersonNameException e) {
                 System.out.println("Fehler: " + e.getMessage());
-
             }
 
             System.out.println("Möchtest du eine weitere Person erstellen? j/n");
             String choice = scanner.nextLine();
             if (choice.equalsIgnoreCase("n")) {
                 done = true;
-            }
-            else if (choice.equals(":q!")) {
+            } else if (choice.equals(":q!")) {
                 System.out.println("Programm wird beendet...");
                 System.exit(0);
-
             }
-
         }
 
         System.out.println(pm.toString());
@@ -49,28 +46,13 @@ public class Main {
                 System.exit(0);
             }
 
-            try{
+            try {
                 pm.findPerson(lfPerson);
-            } catch(NullPointerException e){
+            }
+            catch (NullPointerException e) {
+                System.out.println("Fehler: " + e.getMessage());
 
             }
-
         }
-
-//            boolean personFound = false;
-////            try {
-//                for (Person p : pm.personList) {
-//                    if (p.getFirstName().equals(lfPerson) || p.getLastName().equals(lfPerson)) {
-//                        System.out.println("Person gefunden: " + p.toString());
-//                        personFound = true;
-//                    }
-//                }
-//                if (!personFound) {
-//                    throw new NullPointerException("Person nicht vorhanden.");
-//                }
-//            } catch (NullPointerException e) {
-//                System.out.println("Fehler: " + e.getMessage());
-//                e.printStackTrace();
-//            }
     }
 }
